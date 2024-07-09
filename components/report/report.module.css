@@ -1,0 +1,76 @@
+/* styles/Table.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 100vw;
+    margin: 0;
+    padding-top: 30px;
+  }
+  .reportHeader{
+    background-color: #00b050;
+    width: 90%;
+    padding: 10px;
+  }
+  .reportHeader > h1{
+    color: #fff;
+     font-size: 25px;
+     text-align: center;
+     
+  }
+  .table {
+    border-collapse: collapse;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .table td {
+    border: 1px solid #000;
+    padding: 20px;
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+  }
+  .section1{
+    display: flex;
+    align-items: center;
+  }
+  .section1 > p{
+     font-size: 19px;
+     font-family: "DINNext-Bold", sans-serif;
+  }
+  .stakholderValue{
+     display: flex;
+     flex-direction: column;
+     align-items:flex-start;
+  }
+   
+.stakholderValue > p{
+     
+    font-size: 19px;
+    font-family: "DINNext-Regulr", sans-serif;
+}
+.imges{
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+     
+}
+.singleImage > p{
+     font-size: 14px;
+}
+.singleImage{
+    border:  1px solid gray;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.singleImage > p{
+    color: gray;
+    font-size: 12px;
+    font-family: "DINNext-Bold", sans-serif;
+}

@@ -1,0 +1,62 @@
+/* Styling the tree view section */
+.treeviewMain {
+  gap: 25px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.parentIcon {
+  display: flex;
+  align-items: center;
+  column-gap: 5px; 
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.children {
+  color: #4B465C;
+  font-family: Montserrat;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  text-align: left; 
+}
+.childrens {
+  color: #8b8f92;
+  font-family: Montserrat;
+  font-size: 13px; 
+  cursor: pointer; 
+  text-align: left;
+
+}
+.childSelected {
+  
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 13x;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 5px;
+}
+.selectedMonitor{
+  border-radius: 10px;
+  background: linear-gradient(to right, #1C7A54, #63C69A) !important;
+}
+@media (max-width: 700px) {
+  .treeviewMain {
+    gap: 0px;
+  }
+  .children {
+    font-size: 12px;
+  }
+  .childSelected {
+    font-size: 12px;
+  }
+}
+@media (max-width: 390px) {
+  .childrens {
+    font-size: 10px;
+    margin-left: -10px;
+  }
+}

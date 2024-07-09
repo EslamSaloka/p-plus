@@ -1,0 +1,227 @@
+/* Master plan styling */
+.masterPlanMain {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  position: relative;  
+  background-color: #1c7a54;
+  background-image: url("/assets/imges/master-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.masterPlanMainH{
+   margin: 80px 0px;
+}
+.masterPlanMainH > h1 {
+  color: #fff;
+  text-align: center;
+  font-family: "DINNext-Medium", sans-serif;
+  font-size: 37px;
+}
+
+.videoContainer {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.masterpyrmaid {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.singleLevel {
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+.masterPlanInfoImg {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.masterPlanInfo {
+  background-image: url("../../../public/assets/imges/Rectangle2.png");
+  background-repeat: no-repeat;
+  width: 357px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+  padding: 15px 54px;
+  transition: all 0.3s ease-in-out;
+}
+.masterPlanInfo2 {
+  background-image: url("../../../public/assets/imges/Rectangle.png") !important;
+  background-repeat: no-repeat;
+}
+.masterPlanInfoDesc {
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 70px;
+  width: 100%;
+  text-align: left !important;
+}
+.masterPlanInfoDescUp {
+  margin-top: -200px !important;
+  margin-left: 0px !important;
+}
+.masterPlanInfoDescLeft {
+  margin-left: -30px !important;
+  width: 90%;
+}
+.masterPlanInfo > p {
+  color: #fff;
+  text-align: right;
+  font-family: "DINNext-Regular", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+.odd {
+  margin-left: 325px;
+}
+.even {
+  margin-right: 450px;
+}
+.pyramid1,
+.pyramid3,
+.pyramid5 {
+  margin-right: 10px;
+}
+/* Responsive design for less than 1400px */
+@media (max-width: 1400px) {
+  .masterPlanInfo {
+    width: 327px;
+  }
+  .odd {
+    margin-left: 265px;
+  }
+}
+/* Responsive design for less than 1300px */
+@media (max-width: 1300px) {
+  .masterPlanInfo {
+    background-size: contain;
+    width: 250px;
+  }
+  .masterPlanInfoDesc {
+    margin-top: 150px;
+  }
+  .masterPlanInfoDescUp {
+    margin-top: -150px !important;
+  }
+  .masterPlanInfoDescLeft {
+    margin-top: 160px !important;
+  }
+  .masterPlanInfo > p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .even {
+    margin-right: 370px;
+  }
+  .odd {
+    margin-left: 180px;
+  }
+}
+/* Responsive design for less than 1300px */
+@media (max-width: 1150px) {
+  .masterPlanInfoImg {
+    column-gap: 5px;
+  }
+  .masterPlanInfo {
+    width: 210px;
+    padding: 20px 5px;
+  }
+  .masterPlanInfo > p {
+    font-size: 13px;
+  }
+  .even {
+    margin-right: 330px;
+  }
+  .odd {
+    margin-left: 100px;
+  }
+}
+
+/* Responsive design for less than 1000px */
+@media (max-width: 1000px) {
+  .masterPlanInfo {
+    display: none;
+  }
+  .even {
+    margin-right: 0px;
+  }
+  .odd {
+    margin-left: 0px;
+  }
+  .masterpyrmaid {
+    margin-left: 0;
+  }
+  .pyramid1 {
+    width: 100px;
+    height: 90px;
+  }
+  .pyramid2 {
+    width: 200px;
+    height: 90px;
+  }
+
+  .pyramid3 {
+    width: 310px;
+    height: 90px;
+  }
+  .pyramid4 {
+    width: 430px;
+    height: 90px;
+  }
+  .pyramid5 {
+    width: 540px;
+    height: 90px;
+  }
+}
+
+/* Responsive design for less than 550px */
+@media (max-width: 550px) {
+  .pyramid1 {
+    width: 90px;
+    height: 65px;
+  }
+  .pyramid2 {
+    width: 150px;
+    height: 65px;
+  }
+
+  .pyramid3 {
+    width: 225px;
+    height: 65px;
+  }
+  .pyramid4 {
+    width: 305px;
+    height: 65px;
+  }
+  .pyramid5 {
+    width: 390px;
+    height: 80px;
+  }
+}

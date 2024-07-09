@@ -1,0 +1,355 @@
+/* Styling the bottom section of the home page */
+.homeBottomSectoin{
+  background-color: #fff;
+  background-image: url("../../public/assets/svg/mapWorld.svg");
+  background-position: center;
+  background-size: cover;
+    
+}
+.homeBottomMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 50px;
+  padding: 80px;  
+   position: relative;
+}
+.stakholderArrows {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stakholderArrows > img {
+  cursor: pointer;
+}
+.stakholderArrows > img:first-child {
+  transform: rotate(180deg);
+}
+.bottomLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 80px;
+  
+}
+.bottomLogo > h2 {
+  color: #000;
+  font-family: "DINNext-Bold", sans-serif;
+  font-size: 32px;
+}
+.bottomLogo > h2 > span {
+  color: #005149;
+  text-align: center;
+  font-family: "DINNext-Regular", sans-serif;
+  font-size: 32px;
+}
+.partners {
+  
+ 
+  display: flex;
+  align-items: center;
+  column-gap: 55px;
+}
+.arrowsImg {
+  position: absolute;
+  top: 180px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.arrowRightRotate {
+  transform: rotate(180deg);
+
+  cursor: pointer;
+}
+.arrowLeft {
+  cursor: pointer;
+}
+.partnerItem {
+  cursor: pointer;
+}
+.partnerItem::selection {
+  user-select: none;
+}
+/* Styling footer */
+.footerMain {
+  width: 100%;
+  height: 100%;
+}
+.footerContentMain {
+  background: linear-gradient(to right, #1c7a54 100%, #1c7a54 100%);
+  background-color: #3d9e7b;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  column-gap: 100px;
+  padding: 32px 70px;
+
+  column-gap: 100px;
+  background-size: 65% auto;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.logoSec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.logoSec > p {
+  font-size: 16px;
+  width: 340px;
+  font-family: "DINNext-Regular", sans-serif;
+}
+.contentVision {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footerContent {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.footerContent > li {
+  color: #fff;
+  font-family: "DINNext-light", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: 400;
+  line-height: 22px; /* 137.5% */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.footerContent > li:hover {
+  text-shadow: 1px 0px;
+}
+.footerCopyRight > p {
+  color: #fff;
+  text-align: right;
+  font-family: "DINNext-Regular", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 137.5% */
+}
+/* Arrow down button */
+.btnDown {
+  position: absolute;
+  bottom: -50px;
+  z-index: 100;
+  left: 80px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6.449999809265137px);
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.contact > h1 {
+  font-family: "DINNext-medium", sans-serif;
+
+  font-size: 22px;
+}
+.socialIcons {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+.icon {
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.footerVisions {
+  display: flex;
+  align-items: center;
+  margin-left: -7px;
+  gap: 15px;
+}
+/* Slogans */
+.linksSlogans {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-family: "DINNext-light", sans-serif !important;
+  font-size: 1rem;
+  row-gap: 14px;
+  text-decoration: underline;
+}
+.visionFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+.visionImg {
+  justify-content: flex-end;
+}
+@media (max-width: 1125px) {
+  .visionImg {
+    width: 200px;
+    height: 80px;
+  }
+  .footerContentMain {
+    padding: 60px 10px;
+    gap: 30px;
+    background-size: 85% auto;
+  }
+  .footerContent {
+    column-gap: 20px;
+  }
+  .logoSec > p {
+    width: 300px;
+  }
+  .contact > h1 {
+    font-size: 1.7em;
+    margin-top: -5px;
+  }
+}
+@media (max-width: 850px) {
+  .stakholderNewsArrow{
+    width: 25px;
+    height: 25px;
+ }
+  .homeBottomMain {
+    row-gap: 120px;
+  }
+  .partners {
+    column-gap: 25px;
+  }
+  .partnerItem > img {
+    width: 120px;
+    height: 120px;
+  }
+  .footerContentMain {
+    padding: 40px 10px 0px 10px;
+    background-size: 90% auto;
+  }
+  .footerContent {
+    column-gap: 10px;
+  }
+  .footerContent > li {
+    font-size: 15px;
+  }
+  .footerCopyRight > p {
+    font-size: 15px;
+  }
+
+  .logoSec {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .logoSec > p {
+    width: 100%;
+    text-align: center;
+  }
+  .visionFooter {
+    align-items: center;
+  }
+  .linksSlogans {
+    gap: 50px;
+  }
+}
+@media (max-width: 650px) {
+  .visionImg {
+    width: 130px;
+    height: 50px;
+  }
+  .stakholderArrows{
+     justify-content: flex-end;
+    gap: 25px;
+    position: absolute; 
+    top: 5px;
+  } 
+  .bottomLogo{
+     position: absolute;
+     left: 10%;
+     top: 0;
+  }
+  .bottomLogo > h2  {
+     font-size: 18px !important;
+     text-align: left;
+  }
+  .bottomLogo > h2 span {
+    font-size: 18px !important;
+  }
+  .stakholderNewsArrow{
+     width: 15px;
+     height: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .btnDown {
+    left: 30px;
+    width: 50px;
+    height: 50px;
+  }
+ 
+  .homeBottomMain {
+    row-gap: 120px;
+  }
+  .partners {
+    column-gap: 25px;
+  }
+  .partnerItem > img {
+    width: 100px;
+    height: 100px;
+  }
+  .sliders {
+    width: 150px;
+  }
+  .footerContentMain {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Cover the entire container */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .logoSec {
+    gap: 25px;
+    align-items: center;
+  }
+  .logoSec > img {
+    margin-right: 40px;
+  }
+  .logoSec > p {
+    width: 100%;
+    text-align: center;
+  }
+  .contact {
+    align-items: center;
+    padding-bottom: 30px;
+  }
+}
+@media (max-width: 400px) {
+  .visionImg {
+    width: 100px;
+  }
+}

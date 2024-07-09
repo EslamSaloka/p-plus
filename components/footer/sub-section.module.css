@@ -1,0 +1,41 @@
+.subMainSection{
+     background-image: url("/assets/imges/subBackground.png");
+     background-position: center;
+     background-repeat: no-repeat;
+     min-height: 500px;
+     min-width: 100% !important;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     justify-content: center;
+     gap: 50px;
+}
+.subMainSection > h1{
+     font-family: "DINNext-Regular", sans-serif;
+}
+.emailPart{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     
+    }
+    .email{
+         background-color: #fff;
+         width: 60%;
+         padding: 20px;  
+         border: none;
+         color: gray;
+         border-top-left-radius: 10px;
+         border-bottom-left-radius: 10px;
+     box-shadow: 0px 1px 1px 1px #77C093;
+    }
+    .emailPart > button{
+        cursor: pointer;
+         padding: 20px 60px;
+         background: #77C093;
+         border: none;
+          font-family: "DINNext-Bold", sans-serif;
+         border-top-right-radius: 10px;
+         border-bottom-right-radius: 10px; 
+    }

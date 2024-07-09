@@ -1,0 +1,210 @@
+/* Main file for master plan page */
+.masterPlanMain {
+  background: #fff;
+  color: #000;
+  padding: 50px 10px 50px 10px; 
+  height: 110vh;
+}
+.masterPlanContent {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  column-gap: 25px;
+  margin-top: 20px;
+  height: 100%;
+}
+
+/* Side Menu Styling*/
+.buttonShown{
+   position: absolute;
+   background-color: #1C7A54;
+   padding: 10px;
+   border-radius: 15px;
+   border: none;
+   transform: rotate(90deg);
+   right: 0;
+  }
+.sideMenuMP {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 26px 15px;
+  overflow-y: scroll;
+  border: 1px solid var(--black-10, rgba(0, 0, 0, 0.1));
+  border-radius: 5px;
+}
+.sideMenuMP::-webkit-scrollbar {
+  width: 0em;
+}
+.searchSideMenu {
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  background: #fdfdfd;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 16px;
+  column-gap: 5px;
+}
+.searchSideMenu > input {
+  border: none;
+  outline: none;
+  color: #5b5d5f;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: transparent;
+}
+.searchSideMenu > input::placeholder {
+  color: #8b8f92;
+}
+.sideMenuTreeView {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.sideMenuTreeView > p {
+  color: var(--black-40, rgba(0, 0, 0, 0.4));
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+.treeViewSideMenu {
+  overflow-y: scroll;
+  user-select: none;
+}
+.treeViewSideMenu::-webkit-scrollbar {
+  width: 0;
+}
+/* Sytling for selecting elemtns */
+.choosen > p {
+  color: #63C69A;
+  font-family: "DINNext-meduim", sans-serif;
+  font-size: 14px;
+  margin-left: 70px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.choosen > p > span:last-child {
+  color: #000;
+}
+.choosen > p > span:hover {
+  text-shadow: 1px 0px;
+}
+/* Master plan content */
+.sideContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 29px;
+  overflow: scroll;
+}
+.sideContent::-webkit-scrollbar {
+  width: 0;
+}
+.sideContent > p {
+  color: #000;
+
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.contentPlan {
+  border-radius: 10px;
+  background: #fff;
+  height: 100%;
+  padding: 0px 34px;
+  position: relative;
+
+}
+
+.contentPlan > ul > li {
+  color: #575757;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 16px;
+}
+/* Sytling button for showing video for master_plan */
+.videoShow{
+  color: #fff !important; 
+  background: linear-gradient(to right, #1C7A54, #63C69A) ;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 12px 35px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  margin-bottom: 10px;
+  float: right;
+  z-index: 999;
+  position: absolute;
+  right: 60px;
+}
+.videoShow:hover{
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.2);
+}
+/* Table Elements */
+ .tableHover{
+   cursor: pointer;
+ }
+ .tableHover:hover{
+   color: #63C69A
+ }
+ .documentMasterPlan{
+  height: 80%;
+  width: 80%;
+  background-color: #fff;
+ }
+/* Responsive design for less than 1000px */
+@media (max-width: 1000px) {
+  .masterPlanMain {
+    padding-left: 5px;
+  }
+  .sideMenuMP {
+    padding: 26px 0px;
+  }
+}
+/* Responsive for less than 600px */
+@media (max-width: 600px) {
+   
+  .masterPlanContent {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+  }
+ .videoShow{
+  padding: 7px 15px;
+  right: 5px;
+  top: 0;
+ }
+ .documentMasterPlan{
+   background-color: #000;
+ }
+}
+/* 430px */
+@media (max-width: 435px) {
+  .choosen > p {
+    font-size: 10px;
+  }
+  .sideContent > p {
+    font-size: 24px;
+  }
+  .contentPlan {
+    padding: 46px 5px;
+  }
+  .contentPlan > ul > li {
+    font-size: 13px;
+  }
+}

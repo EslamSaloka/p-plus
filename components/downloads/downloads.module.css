@@ -1,0 +1,223 @@
+/* Styling for download page */
+.downloadPage {
+  display: flex;
+  flex-direction: column;
+  row-gap: 35px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+  position: relative;
+  color: #000;
+}
+.choosen {
+  background-image: url("../../public/assets/imges/aboutBackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 38px 91px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.choosen > h1 {
+  font-size: 48px;
+  color: #fff;
+  font-family: Montserrat;
+}
+.choosen > p {
+  color: #000;
+  font-family: "DINNext-meduim", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.choosen > p > span:first-child {
+  color: #fff;
+}
+.choosen > p > span:first-child {
+  color: #fff;
+}
+.choosen > p > span:hover {
+  font-weight: 600;
+}
+.downloadContent {
+  padding: 32px 81px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  padding: 0 250px;
+}
+.downloadContent > h1 {
+  color: #005149;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.downloadContent > p {
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+}
+.downloadTables {
+  padding: 32px 81px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.filteringDocument {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filterByNumber {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Styling for pagniation items  */
+.paginationContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+.paginationLink {
+  padding: 7px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #952a2a;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.paginationLink:hover {
+  background-color: #eee;
+}
+.paginationLink.active {
+  background-color: #00685e;
+  color: #fff;
+}
+.pagination {
+  list-style: none;
+
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.paginationTerm {
+  color: #4b465c;
+  font-size: 16px;
+  background-color: rgb(233, 229, 229);
+  padding: 7px;
+  font-family: "DINNext-light", sans-serif;
+  border-radius: 5px;
+}
+.active {
+  background-color: #1c7a54 !important;
+  color: #fff;
+  border-radius: 5px;
+
+  font-family: "DINNext-light", sans-serif;
+}
+
+.pageItem {
+  list-style: none;
+  padding: 2px 12px;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  background-color: rgb(233, 229, 229);
+  border-radius: 7px;
+  padding: 7px;
+  color: #fff;
+  font-family: "DINNext-light", sans-serif;
+}
+.submitBtn {
+  padding: 10px 30px;
+  background-color: #63c69a;
+  display: flex;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+
+  align-self: flex-end;
+}
+/* Media for less than 1150 */
+@media (max-width: 1150px) {
+  .downloadContent {
+    padding: 0 80px;
+  }
+  .tableHead {
+    grid-template-columns: 5fr 1fr 1fr 1fr;
+  }
+}
+/* Media for less than 900 */
+@media (max-width: 900px) {
+  .downloadContent {
+    padding: 0 20px;
+  }
+  .tableHead {
+    grid-template-columns: 5fr 1fr 1fr 1fr;
+    font-size: 12px;
+  }
+  .downloadTables {
+    padding: 32px 21px;
+  }
+}
+/* Media for less than 500 */
+@media (max-width: 500px) {
+  .downloadContent > h1 {
+    font-size: 24px;
+  }
+  .choosen {
+    gap: 10px;
+    padding: 22px 31px;
+    height: 130px;
+  }
+  .choosen > h1{
+     font-size: 30px !important;
+  }
+  .downloadContent {
+    padding: 0px 10px;
+  }
+
+  .tableHead {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    font-size: 11px;
+    gap: 7px;
+  }
+  .tableHead > p {
+    justify-self: flex-start;
+  }
+  .downloadTables {
+    padding: 12px 0px;
+  }
+}
