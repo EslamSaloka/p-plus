@@ -256,8 +256,18 @@ input[class*="ui_errorMailing"] {
 
 // breadcrumbs
 p {
-    img[alt="chev"]:is(:last-child) {
-        display: none !important;
+    img[alt="chev"] {
+        &:is(:last-child),
+        &:has(+ span:empty) {
+            display: none !important;
+        }
+    }
+
+    img[alt="chevron"] {
+        &:is(:last-child),
+        &:has(+ span:empty) {
+            display: none !important;
+        }
     }
 }
 
