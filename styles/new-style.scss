@@ -192,11 +192,10 @@
             justify-content: start;
             flex-wrap: nowrap;
             column-gap: 40px;
-            background-size: 100%;
 
             @media (min-width: 1200px) and (max-width: 1450px) {
                 padding: 32px;
-                justify-content: center;
+                justify-content: space-evenly;
             }
 
             @media (max-width: 991px) {
