@@ -180,3 +180,10 @@ input[class*="ui_errorMailing"] {
         }
     }
 }
+
+// breadcrumbs
+[class*="masterPlan_choosen"] {
+    img:has(+ span:empty) {
+        display: none !important;
+    }
+}
