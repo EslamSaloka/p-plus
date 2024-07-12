@@ -1,8 +1,22 @@
 .main-footer {
     h1,
-    p,
+    p {
+        color: #fff;
+    }
+
     .links {
         color: #fff;
+
+        @media (min-width: 1200px) and (max-width: 1450px) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
     }
 
     .footer-body {
@@ -11,6 +25,12 @@
             justify-content: start;
             flex-wrap: nowrap;
             column-gap: 40px;
+            background-size: 100%;
+
+            @media (min-width: 1200px) and (max-width: 1450px) {
+                padding: 32px;
+                justify-content: center;
+            }
         }
     }
 
