@@ -260,6 +260,20 @@ p {
     height: 217px;
 }
 
+// pagination
+[class*="paginationContainer"] {
+    @media (max-width: 991px) {
+        justify-content: center !important;
+    }
+}
+
+// tables
+[class*="downloads_downloadTables"] {
+    @media (max-width: 767px) {
+        padding: 12px !important;
+    }
+}
+
 /************ home sections ************/
 .welcome-section {
     @media (max-width: 991px) {
