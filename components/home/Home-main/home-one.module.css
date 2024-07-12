@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px 0px 20px 60px;
-  height: calc(100vh - 111px);
+  min-height: calc(100vh - 111px);
   z-index: 2;
   position: relative;
 }
