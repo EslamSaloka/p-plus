@@ -1,3 +1,10 @@
+/************ helpers ************/
+.white-img {
+    filter: brightness(0) invert(1);
+}
+
+/************ components ************/
+// footer
 .main-footer {
     h1,
     p {
@@ -40,5 +47,49 @@
                 font-size: 0.77rem;
             }
         }
+    }
+}
+
+// modal
+.swal2-popup {
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 0.5rem;
+
+    min-width: 50vw;
+    text-align: start;
+    padding: 2rem;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .swal2-image {
+        min-width: max-content;
+        grid-row: 1/3;
+    }
+
+    .swal2-title {
+        grid-row: 1/2;
+        text-align: start;
+        align-self: center;
+        padding-inline-start: 2rem;
+    }
+
+    .swal2-html-container {
+        grid-row: 2/3;
+        text-align: start;
+        align-self: flex-start;
+        padding-inline-start: 2rem;
+    }
+
+    background: #fff !important;
+
+    .swal2-actions {
+        justify-content: flex-end;
+        grid-column: span 2;
+        width: 100%;
+        margin-top: 3rem;
     }
 }
