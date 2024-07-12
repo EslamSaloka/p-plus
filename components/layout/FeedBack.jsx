@@ -128,276 +128,278 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                 </DialogContentText>
             </DialogContent>
 
-            <Grid>
-                <form onSubmit={formik.handleSubmit} className={classes.formsInput}>
-                    <div className={classes.emailPhone}>
+            <div style={{ overflowY: 'auto' }}>
+                <Grid>
+                    <form onSubmit={formik.handleSubmit} className={classes.formsInput}>
+                        <div className={classes.emailPhone}>
+                            <div
+                                className={`${classes.inputLabel} ${focusedInput === "email" ? classes.inputLabelFocused : null
+                                    } ${formik.errors.email && formik.touched.email
+                                        ? classes.inputLabelError
+                                        : null
+                                    }`}
+                            >
+                                <label
+                                    htmlFor="email"
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                >
+                                    {t("feedback-email-label")}
+                                    {formik.touched.email && formik.errors.email ? "*" : null}
+                                </label>
+                                <input
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    placeholder={rtl ? "الايميل" : "Email"}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.email}
+                                    onFocus={() => handleInputFocus("email")}
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                />
+                                {formik.touched.email && formik.errors.email && (
+                                    <span className={classes.errorMessage}>
+                                        {formik.errors.email}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div
+                                className={`${classes.inputLabel} ${focusedInput === "phone" ? classes.inputLabelFocused : null
+                                    } ${formik.errors.phone && formik.touched.phone
+                                        ? classes.inputLabelError
+                                        : null
+                                    }`}
+                            >
+                                <label
+                                    htmlFor="phone"
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                >
+                                    {t("feedback-phone-number")}
+                                    {formik.touched.phone && formik.errors.phone ? "*" : null}
+                                </label>
+                                <input
+                                    type="text"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder={t("feedback-phone-number")}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.phone}
+                                    onFocus={() => handleInputFocus("phone")}
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                />
+                                {formik.touched.phone && formik.errors.phone && (
+                                    <span className={classes.errorMessage}>
+                                        {formik.errors.phone}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
                         <div
-                            className={`${classes.inputLabel} ${focusedInput === "email" ? classes.inputLabelFocused : null
-                                } ${formik.errors.email && formik.touched.email
+                            className={`${classes.inputLabel} ${focusedInput === "name" ? classes.inputLabelFocused : null
+                                } ${formik.errors.name && formik.touched.name
                                     ? classes.inputLabelError
                                     : null
                                 }`}
                         >
                             <label
-                                htmlFor="email"
+                                htmlFor="name"
                                 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                             >
-                                {t("feedback-email-label")}
-                                {formik.touched.email && formik.errors.email ? "*" : null}
+                                {t("feedback-name")}
+                                {formik.touched.name && formik.errors.name ? "*" : null}
                             </label>
                             <input
                                 type="text"
-                                id="email"
-                                name="email"
-                                placeholder={rtl ? "الايميل" : "Email"}
+                                id="name"
+                                name="name"
+                                ref={inputRef}
+                                placeholder={t("feedback-name")}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.email}
-                                onFocus={() => handleInputFocus("email")}
+                                value={formik.values.name}
+                                onFocus={() => handleInputFocus("name")}
                                 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                             />
-                            {formik.touched.email && formik.errors.email && (
-                                <span className={classes.errorMessage}>
-                                    {formik.errors.email}
-                                </span>
+                            {formik.touched.name && formik.errors.name && (
+                                <span className={classes.errorMessage}>{formik.errors.name}</span>
                             )}
                         </div>
 
-                        <div
-                            className={`${classes.inputLabel} ${focusedInput === "phone" ? classes.inputLabelFocused : null
-                                } ${formik.errors.phone && formik.touched.phone
-                                    ? classes.inputLabelError
-                                    : null
-                                }`}
-                        >
-                            <label
-                                htmlFor="phone"
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                            >
-                                {t("feedback-phone-number")}
-                                {formik.touched.phone && formik.errors.phone ? "*" : null}
-                            </label>
-                            <input
-                                type="text"
-                                id="phone"
-                                name="phone"
-                                placeholder={t("feedback-phone-number")}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.phone}
-                                onFocus={() => handleInputFocus("phone")}
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                            />
-                            {formik.touched.phone && formik.errors.phone && (
-                                <span className={classes.errorMessage}>
-                                    {formik.errors.phone}
-                                </span>
-                            )}
-                        </div>
-                    </div>
-                    <div
-                        className={`${classes.inputLabel} ${focusedInput === "name" ? classes.inputLabelFocused : null
-                            } ${formik.errors.name && formik.touched.name
-                                ? classes.inputLabelError
-                                : null
-                            }`}
-                    >
-                        <label
-                            htmlFor="name"
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                        >
-                            {t("feedback-name")}
-                            {formik.touched.name && formik.errors.name ? "*" : null}
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            ref={inputRef}
-                            placeholder={t("feedback-name")}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.name}
-                            onFocus={() => handleInputFocus("name")}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                        />
-                        {formik.touched.name && formik.errors.name && (
-                            <span className={classes.errorMessage}>{formik.errors.name}</span>
-                        )}
-                    </div>
-
-                    <div className={classes.feedTypeTitle}>
-                        <div
-                            className={`${classes.inputLabel} ${focusedInput === "feedbackTitle"
+                        <div className={classes.feedTypeTitle}>
+                            <div
+                                className={`${classes.inputLabel} ${focusedInput === "feedbackTitle"
                                     ? classes.inputLabelFocused
                                     : null
-                                } ${formik.errors.feedbackTitle && formik.touched.feedbackTitle
+                                    } ${formik.errors.feedbackTitle && formik.touched.feedbackTitle
+                                        ? classes.inputLabelError
+                                        : null
+                                    }`}
+                            >
+                                <label
+                                    htmlFor="feedbackTitle"
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                >
+                                    {t("feedback-title")}{" "}
+                                    {formik.touched.feedbackTitle && formik.errors.feedbackTitle
+                                        ? "*"
+                                        : ""}
+                                </label>
+                                <input
+                                    type="text"
+                                    id="feedbackTitle"
+                                    name="feedbackTitle"
+                                    placeholder={t("feedback-title")}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.feedbackTitle}
+                                    onFocus={() => handleInputFocus("feedbackTitle")}
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                />
+                                {formik.touched.feedbackTitle && formik.errors.feedbackTitle && (
+                                    <span className={classes.errorMessage}>
+                                        {formik.errors.feedbackTitle}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div
+                                className={`${classes.inputLabel} ${focusedInput === "feedbackType"
+                                    ? classes.inputLabelFocused
+                                    : null
+                                    } ${formik.errors.feedbackType && formik.touched.feedbackType
+                                        ? classes.inputLabelError
+                                        : null
+                                    } ${classes.customSelect} `}
+                            >
+                                <label
+                                    htmlFor="feedbackType"
+                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                >
+                                    {t("feedback-type")}
+                                </label>
+
+                                <Select
+                                    id="feedbackType"
+                                    name="feedbackType"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.feedbackType}
+                                    onFocus={() => handleInputFocus("feedbackType")}
+                                    style={{ height: "45px", borderRadius: "8px" }}
+                                >
+                                    <MenuItem value={0}>
+                                        <p
+                                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        >
+                                            {t("feedback-reco")}
+                                        </p>
+                                    </MenuItem>
+                                    <MenuItem
+                                        value={1}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    >
+                                        {t("feedback-error")}
+                                    </MenuItem>
+                                    <MenuItem
+                                        value={2}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    >
+                                        {t("feedback-question")}
+                                    </MenuItem>
+                                    <MenuItem
+                                        value={3}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    >
+                                        {t("feedback-other")}
+                                    </MenuItem>
+                                </Select>
+                                {formik.touched.feedbackType && formik.errors.feedbackType && (
+                                    <span className={classes.errorMessage}>
+                                        {formik.errors.feedbackType}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                        <div
+                            className={`${classes.inputLabel} ${focusedInput === "feedbackMessage"
+                                ? classes.inputLabelFocused
+                                : null
+                                } ${formik.errors.feedbackMessage && formik.touched.feedbackMessage
                                     ? classes.inputLabelError
                                     : null
                                 }`}
                         >
                             <label
-                                htmlFor="feedbackTitle"
+                                htmlFor="feedbackMessage"
                                 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                             >
-                                {t("feedback-title")}{" "}
-                                {formik.touched.feedbackTitle && formik.errors.feedbackTitle
+                                {t("feedback-message")}{" "}
+                                {formik.touched.feedbackMessage && formik.errors.feedbackMessage
                                     ? "*"
                                     : ""}
                             </label>
-                            <input
-                                type="text"
-                                id="feedbackTitle"
-                                name="feedbackTitle"
-                                placeholder={t("feedback-title")}
+                            <textarea
+                                id="feedbackMessage"
+                                name="feedbackMessage"
+                                placeholder={t("feedback-message")}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.feedbackTitle}
-                                onFocus={() => handleInputFocus("feedbackTitle")}
+                                rows={4}
+                                value={formik.values.feedbackMessage}
+                                onFocus={() => handleInputFocus("feedbackMessage")}
                                 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                             />
-                            {formik.touched.feedbackTitle && formik.errors.feedbackTitle && (
-                                <span className={classes.errorMessage}>
-                                    {formik.errors.feedbackTitle}
-                                </span>
-                            )}
+                            {formik.touched.feedbackMessage &&
+                                formik.errors.feedbackMessage && (
+                                    <span className={classes.errorMessage}>
+                                        {formik.errors.feedbackMessage}
+                                    </span>
+                                )}
                         </div>
 
-                        <div
-                            className={`${classes.inputLabel} ${focusedInput === "feedbackType"
-                                    ? classes.inputLabelFocused
-                                    : null
-                                } ${formik.errors.feedbackType && formik.touched.feedbackType
-                                    ? classes.inputLabelError
-                                    : null
-                                } ${classes.customSelect} `}
-                        >
-                            <label
-                                htmlFor="feedbackType"
+                        <DialogActions>
+                            <button
+                                variant="contained"
+                                color="inherit"
+                                onClick={() => {
+                                    handleClose();
+                                    formik.resetForm();
+                                }}
+                                className={classes.btnCancel}
+                                style={{
+                                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                    marginLeft: rtl ? "15px" : "",
+                                }}
+                            >
+                                {t("cancel")}
+                            </button>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="success"
+                                className={classes.btnSubmit}
+                                disabled={
+                                    formik.errors.name ||
+                                        formik.errors.email ||
+                                        formik.errors.feedbackMessage ||
+                                        formik.errors.feedbackTitle ||
+                                        formik.errors.feedbackType ||
+                                        formik.errors.phone ||
+                                        !inputRef.current.value ||
+                                        sendFeedback
+                                        ? true
+                                        : false
+                                }
                                 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                             >
-                                {t("feedback-type")}
-                            </label>
-
-                            <Select
-                                id="feedbackType"
-                                name="feedbackType"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.feedbackType}
-                                onFocus={() => handleInputFocus("feedbackType")}
-                                style={{ height: "45px", borderRadius: "8px" }}
-                            >
-                                <MenuItem value={0}>
-                                    <p
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                                    >
-                                        {t("feedback-reco")}
-                                    </p>
-                                </MenuItem>
-                                <MenuItem
-                                    value={1}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                                >
-                                    {t("feedback-error")}
-                                </MenuItem>
-                                <MenuItem
-                                    value={2}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                                >
-                                    {t("feedback-question")}
-                                </MenuItem>
-                                <MenuItem
-                                    value={3}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                                >
-                                    {t("feedback-other")}
-                                </MenuItem>
-                            </Select>
-                            {formik.touched.feedbackType && formik.errors.feedbackType && (
-                                <span className={classes.errorMessage}>
-                                    {formik.errors.feedbackType}
-                                </span>
-                            )}
-                        </div>
-                    </div>
-                    <div
-                        className={`${classes.inputLabel} ${focusedInput === "feedbackMessage"
-                                ? classes.inputLabelFocused
-                                : null
-                            } ${formik.errors.feedbackMessage && formik.touched.feedbackMessage
-                                ? classes.inputLabelError
-                                : null
-                            }`}
-                    >
-                        <label
-                            htmlFor="feedbackMessage"
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                        >
-                            {t("feedback-message")}{" "}
-                            {formik.touched.feedbackMessage && formik.errors.feedbackMessage
-                                ? "*"
-                                : ""}
-                        </label>
-                        <textarea
-                            id="feedbackMessage"
-                            name="feedbackMessage"
-                            placeholder={t("feedback-message")}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            rows={4}
-                            value={formik.values.feedbackMessage}
-                            onFocus={() => handleInputFocus("feedbackMessage")}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                        />
-                        {formik.touched.feedbackMessage &&
-                            formik.errors.feedbackMessage && (
-                                <span className={classes.errorMessage}>
-                                    {formik.errors.feedbackMessage}
-                                </span>
-                            )}
-                    </div>
-
-                    <DialogActions>
-                        <button
-                            variant="contained"
-                            color="inherit"
-                            onClick={() => {
-                                handleClose();
-                                formik.resetForm();
-                            }}
-                            className={classes.btnCancel}
-                            style={{
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                marginLeft: rtl ? "15px" : "",
-                            }}
-                        >
-                            {t("cancel")}
-                        </button>
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            color="success"
-                            className={classes.btnSubmit}
-                            disabled={
-                                formik.errors.name ||
-                                    formik.errors.email ||
-                                    formik.errors.feedbackMessage ||
-                                    formik.errors.feedbackTitle ||
-                                    formik.errors.feedbackType ||
-                                    formik.errors.phone ||
-                                    !inputRef.current.value ||
-                                    sendFeedback
-                                    ? true
-                                    : false
-                            }
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                        >
-                            {t("feedback-submit")}
-                        </Button>
-                    </DialogActions>
-                </form>
-            </Grid>
+                                {t("feedback-submit")}
+                            </Button>
+                        </DialogActions>
+                    </form>
+                </Grid>
+            </div>
         </Dialog>
     );
 };
