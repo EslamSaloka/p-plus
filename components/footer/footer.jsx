@@ -131,7 +131,7 @@ const Footer = ({ conVersion, rtl }) => {
                     </div>
                 </div>
 
-                <div className={classes.contact}>
+                <div className={'grid-md-2 ' + classes.contact}>
                     <h1 className="text-white" style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
                         {t("connect-us")}
                     </h1>
