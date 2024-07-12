@@ -586,7 +586,7 @@
   .navSections {
     position: fixed;  
     top:  -10px;
-    height: 900px;
+    height: 100vh;
     background-color: #fff;
     width: 80%; 
     text-align: center;

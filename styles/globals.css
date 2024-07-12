@@ -175,6 +175,7 @@ a {
    color: #fff;
    background-color: #63c69a;
    padding: 15px;
+   white-space: nowrap;
    border-radius: 15px; 
    font-size: 18px;
    font-family: "DINNext-Bold", sans-serif;

@@ -32,6 +32,11 @@
     }
 }
 
+.img-fluid {
+    height: auto;
+    max-width: 100%;
+}
+
 @for $i from 0 through 12 {
     .gap-#{$i} {
         gap: calc($i * 0.25rem);
