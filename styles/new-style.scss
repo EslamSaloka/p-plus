@@ -221,6 +221,23 @@
 }
 
 // home subscribe
+.home-subscribe {
+    @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+
+    .input-wrapper {
+        @media (max-width: 991px) {
+            width: 68%;
+        }
+
+        @media (max-width: 767px) {
+            width: 90%;
+        }
+    }
+}
+
 input[class*="ui_errorMailing"] {
     &,
     & ~ [class*="ui_errorButton"] {
