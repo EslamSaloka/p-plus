@@ -248,6 +248,12 @@ input[class*="ui_errorMailing"] {
     }
 }
 
+.faq-content {
+    @media (max-width: 991px) {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 // breadcrumbs
 p {
     img[alt="chev"]:is(:last-child) {

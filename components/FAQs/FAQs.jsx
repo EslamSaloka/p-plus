@@ -149,7 +149,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                 ? conVersion?.faqPageDescription
                                 : conVersion?.faqPageDescriptionEN}
                         </p>
-                        <div className={classes.faqTypeMain}>
+                        <div className={'faq-content ' + classes.faqTypeMain}>
                             <div className={classes.sideSection}>
                                 <div
                                     className={`${classes.faqType} ${faqTitle === 0 ? ('active ' + classes.faqTypeClicked) : ""
