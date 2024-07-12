@@ -3,6 +3,101 @@
     filter: brightness(0) invert(1);
 }
 
+.grid-icon {
+    display: grid !important;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 0 0.5rem;
+    width: fit-content;
+    text-align: start;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    & > img:first-child {
+        min-width: max-content;
+    }
+
+    & > :first-child {
+        grid-row: 1/3;
+    }
+
+    & > :nth-child(2) {
+        grid-row: 1/2;
+    }
+
+    & > :last-child {
+        grid-row: 2/3;
+    }
+}
+
+@for $i from 0 through 12 {
+    .gap-#{$i} {
+        gap: calc($i * 0.25rem);
+    }
+}
+
+@for $i from 1 through 9 {
+    .op-#{$i} {
+        opacity: calc($i / 10) !important;
+    }
+}
+
+@for $fw from 3 through 9 {
+    .fw-#{$fw} {
+        font-weight: #{$fw * 100} !important;
+    }
+}
+
+@for $i from 1 through 6 {
+    .p-#{$i} {
+        padding: #{$i * 0.25}rem !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i * 0.25}rem !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i * 0.25}rem !important;
+    }
+    .ps-#{$i} {
+        padding-inline-start: #{$i * 0.25}rem !important;
+    }
+    .pe-#{$i} {
+        padding-inline-end: #{$i * 0.25}rem !important;
+    }
+    .px-#{$i} {
+        padding-inline: #{$i * 0.25}rem !important;
+    }
+    .py-#{$i} {
+        padding-block: #{$i * 0.25}rem !important;
+    }
+}
+
+@for $i from 5 through 12 {
+    .p-#{$i} {
+        padding: clamp(0.7rem, 2.5vw, #{$i * 0.25}rem) !important;
+    }
+    .pt-#{$i} {
+        padding-top: clamp(0.7rem, 2.5vw, #{$i * 0.25}rem) !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: clamp(0.7rem, 2.5vw, #{$i * 0.25}rem) !important;
+    }
+    .ps-#{$i} {
+        padding-inline-start: 2.5vw, clamp(0.7rem, #{$i * 0.25}rem) !important;
+    }
+    .pe-#{$i} {
+        padding-inline-end: 2.5vw, clamp(0.7rem, #{$i * 0.25}rem) !important;
+    }
+    .px-#{$i} {
+        padding-inline: clamp(0.7rem, 2.5vw, #{$i * 0.25}rem) !important;
+    }
+    .py-#{$i} {
+        padding-block: clamp(0.7rem, 2.5vw, #{$i * 0.25}rem) !important;
+    }
+}
+
 /************ general ************/
 // validation
 [class*="errorMessage"]:before {
@@ -65,45 +160,14 @@ input[class*="ui_errorMailing"] {
 }
 
 // modal
-.swal2-popup {
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    gap: 0 0.5rem;
-
-    min-width: 50vw;
-    text-align: start;
-    padding: 2rem;
-
-    label {
-        margin-bottom: 0;
-    }
-
-    .swal2-image {
-        min-width: max-content;
-        grid-row: 1/3;
-    }
-
-    .swal2-title {
-        grid-row: 1/2;
-        text-align: start;
-        align-self: center;
-        padding-inline-start: 2rem;
-    }
-
-    .swal2-html-container {
-        grid-row: 2/3;
-        text-align: start;
-        align-self: flex-start;
-        padding-inline-start: 2rem;
-    }
-
-    background: #fff !important;
-
-    .swal2-actions {
-        justify-content: flex-end;
-        grid-column: span 2;
-        width: 100%;
-        margin-top: 3rem;
+.stakeholder-modal {
+    .grid-icon {
+        @media (max-width: 767px) {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
     }
 }

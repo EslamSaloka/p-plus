@@ -3,15 +3,15 @@ import classes from "./home-bottom.module.css";
 import Footer from "./footer";
 import Slider from "react-infinite-logo-slider";
 import NewsLandingpage from "./NewsLandingpage";
-import DialogModal from "../ui/DialogModal";
 import Image from "next/image";
 import Subscribe from "../ui/Subscribe";
+import StakeholderModal from "./StakeholderModal";
 
 const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
     const [sliderWidth, setSliderWidth] = useState("180px");
     const [leftRight, setLeftRight] = useState(false);
     const [selectedStakholder, setSelectedStakholder] = useState(null);
-    //setting up for the dialog modal
+    //setting up for the feedback modal
 
     const [open, setOpen] = useState(false);
 
@@ -115,7 +115,7 @@ const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
                     </Slider>
                 </div>
                 {selectedStakholder && (
-                    <DialogModal
+                    <StakeholderModal
                         open={open}
                         handleClose={handleClose}
                         openLink={likeAndOpenLink}
