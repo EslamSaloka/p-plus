@@ -3,6 +3,12 @@
     filter: brightness(0) invert(1);
 }
 
+/************ general ************/
+// validation
+[class*="errorMessage"]:before {
+    top: -8px !important;
+}
+
 /************ components ************/
 // footer
 .main-footer {
@@ -47,6 +53,14 @@
                 font-size: 0.77rem;
             }
         }
+    }
+}
+
+// home subscribe
+input[class*="ui_errorMailing"] {
+    &,
+    & ~ [class*="ui_errorButton"] {
+        box-shadow: 0 5px 10px 0 #df9492 !important;
     }
 }
 
