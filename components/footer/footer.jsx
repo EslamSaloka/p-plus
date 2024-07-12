@@ -193,7 +193,8 @@ const Footer = ({ conVersion, rtl }) => {
                             />
                         </div>
                     </div>
-                    <ul className={classes.footerContent}>
+
+                    <ul className={'pages-links ' + classes.footerContent}>
                         <li
                             onClick={() => {
                                 router.push("/");

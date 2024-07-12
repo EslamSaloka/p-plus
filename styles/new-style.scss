@@ -7,7 +7,18 @@
 
     .footer-body {
         .ar-lang & {
-            background: linear-gradient(to left, #1c7a54 100%, #1c7a54 100%);
+            background-position: right top;
+            justify-content: start;
+            flex-wrap: nowrap;
+            column-gap: 40px;
+        }
+    }
+
+    .pages-links {
+        li {
+            .ar-lang & {
+                font-size: 0.77rem;
+            }
         }
     }
 }
