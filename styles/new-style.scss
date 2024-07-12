@@ -1,0 +1,13 @@
+.main-footer {
+    h1,
+    p,
+    .links {
+        color: #fff;
+    }
+
+    .footer-body {
+        .ar-lang & {
+            background: linear-gradient(to left, #1c7a54 100%, #1c7a54 100%);
+        }
+    }
+}

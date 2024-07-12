@@ -1,20 +1,24 @@
 const webpack = require("webpack");
-/** @type {import('next').NextConfig} */ 
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-   
-  webpack: (config) => {
-       config.resolve.alias.canvas = false;
-    
-      return config;
+    reactStrictMode: true,
+    swcMinify: true,
+    sassOptions: {
+        includePaths: ["./styles"],
     },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
-  },
+    webpack: (config) => {
+        config.resolve.alias.canvas = false;
+        return config;
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "**",
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;
