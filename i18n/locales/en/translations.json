@@ -89,5 +89,7 @@
     "project-start": "Project Start",
     "project-owner": "Project owner",
     "project-end": "Project End",
-    "status": "Status"
+    "status": "Status",
+    "operation-environment": "Operation environment",
+    "implementation-objectives-monitoring": "Implementation Objectives (Monitoring)"
 }

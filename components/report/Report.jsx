@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./report.module.css";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
 
 const ReportPage = ({ data }) => {
     const {
@@ -14,6 +13,10 @@ const ReportPage = ({ data }) => {
         projectStartDate,
         projectEndDate,
         percentage,
+        operatingEnvironmentAirport,
+        operatingEnvironmentTerminal,
+        operatingEnvironmentACC,
+        operatingEnvironmentNotApplicable,
     } = data.projectInformation;
 
     //Parse the ISO date string into a date object
@@ -33,7 +36,6 @@ const ReportPage = ({ data }) => {
 
     //calculating the completion of the projects
     const statusText = percentage < 85 ? "Late" : "Done";
-    const { t } = useTranslation();
 
     return (
         <div className={styles.container}>
@@ -45,139 +47,150 @@ const ReportPage = ({ data }) => {
                     <tr>
                         <td>
                             <div className={styles.section1}>
-                                <p> {t("stakeholders")} </p>
+                                <p> Stakholders </p>
                             </div>
                         </td>
                         <td>
                             <div className={styles.stakholderValue}>
-                                <p>ANSPs</p>
-                                <p>Military</p>
-                                <p>Regulators</p>
+                                {data.projectStakeholders.map((stakeholder, index) => (
+                                    <p key={index}>{stakeholder.userName}</p>
+                                ))}
                             </div>
                         </td>
                         <td>
                             <div className={styles.section1}>
-                                <p> {t("expected-benefits")} </p>
+                                <p> Expected Benefits </p>
                             </div>
                         </td>
                         <td style={{ padding: "0px" }}>
                             <div className={styles.benefitImages}>
                                 <div className={styles.imges}>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitCapacity
-                                                ? "capacity-blue.png"
-                                                : "capacity-gray.png"
-                                                } `}
-                                            width={50}
-                                            height={50}
-                                            alt="capacity"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitCapacity ? "#4752a3" : "gray",
-                                            }}
-                                        >
-                                            {t("capacity")}
-                                        </p>
-                                    </div>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitOprationalEfficiency
-                                                ? "operation-blue.png"
-                                                : "operation-gray.png"
-                                                }`}
-                                            width={50}
-                                            height={50}
-                                            alt="operational"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitOprationalEfficiency
-                                                    ? "#4752a3"
-                                                    : "gray",
-                                            }}
-                                        >
-                                            {t("operational-efficiency")}
-                                        </p>
-                                    </div>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitCostEfficiency
-                                                ? "cost-blue.png"
-                                                : "cost-gray.png"
-                                                }`}
-                                            width={50}
-                                            height={50}
-                                            alt="cosy"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitCostEfficiency
-                                                    ? "#4752a3"
-                                                    : "gray",
-                                            }}
-                                        >
-                                            {t("cost-efficiency")}
-                                        </p>
-                                    </div>
+                                    {expectedBenefitCapacity &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitCapacity
+                                                    ? "capacity-blue.png"
+                                                    : "capacity-gray.png"
+                                                    } `}
+                                                width={50}
+                                                height={50}
+                                                alt="capacity"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitCapacity ? "#4752a3" : "gray",
+                                                }}
+                                            >
+                                                Capacity
+                                            </p>
+                                        </div>
+                                    }
+                                    {expectedBenefitOprationalEfficiency &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitOprationalEfficiency
+                                                    ? "operation-blue.png"
+                                                    : "operation-gray.png"
+                                                    }`}
+                                                width={50}
+                                                height={50}
+                                                alt="operational"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitOprationalEfficiency
+                                                        ? "#4752a3"
+                                                        : "gray",
+                                                }}
+                                            >
+                                                Operational efficiency
+                                            </p>
+                                        </div>
+                                    }
+                                    {expectedBenefitCostEfficiency &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitCostEfficiency
+                                                    ? "cost-blue.png"
+                                                    : "cost-gray.png"
+                                                    }`}
+                                                width={50}
+                                                height={50}
+                                                alt="cosy"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitCostEfficiency
+                                                        ? "#4752a3"
+                                                        : "gray",
+                                                }}
+                                            >
+                                                Cost efficiency
+                                            </p>
+                                        </div>
+                                    }
                                 </div>
-
                                 <div className={styles.imges}>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitSafety
-                                                ? "seat-blue.png"
-                                                : "seat-gray.png"
-                                                }`}
-                                            width={50}
-                                            height={50}
-                                            alt="Saftely"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitSafety ? "#4752a3" : "gray",
-                                            }}
-                                        >
-                                            {t("safety")}
-                                        </p>
-                                    </div>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitEnvironment
-                                                ? "evniroment-blue.png"
-                                                : "enviroment-gray.png"
-                                                }`}
-                                            width={50}
-                                            height={50}
-                                            alt="enviroment"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitEnvironment ? "#4752a3" : "gray",
-                                            }}
-                                        >
-                                            {t("environment")}
-                                        </p>
-                                    </div>
-                                    <div className={styles.singleImage}>
-                                        <Image
-                                            src={`/assets/imges/${expectedBenefitSecurity
-                                                ? "secure-blue.png"
-                                                : "secure-gray.png"
-                                                }`}
-                                            width={50}
-                                            height={50}
-                                            alt="security"
-                                        />
-                                        <p
-                                            style={{
-                                                color: expectedBenefitSecurity ? "#4752a3" : "gray",
-                                            }}
-                                        >
-                                            {t("security")}
-                                        </p>
-                                    </div>
+                                    {expectedBenefitSafety &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitSafety
+                                                    ? "seat-blue.png"
+                                                    : "seat-gray.png"
+                                                    }`}
+                                                width={50}
+                                                height={50}
+                                                alt="Saftely"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitSafety ? "#4752a3" : "gray",
+                                                }}
+                                            >
+                                                Saftey
+                                            </p>
+                                        </div>
+                                    }
+                                    {expectedBenefitEnvironment &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitEnvironment
+                                                    ? "evniroment-blue.png"
+                                                    : "enviroment-gray.png"
+                                                    }`}
+                                                width={50}
+                                                height={50}
+                                                alt="enviroment"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitEnvironment ? "#4752a3" : "gray",
+                                                }}
+                                            >
+                                                Enviroment
+                                            </p>
+                                        </div>
+                                    }
+                                    {expectedBenefitSecurity &&
+                                        <div className={styles.singleImage}>
+                                            <Image
+                                                src={`/assets/imges/${expectedBenefitSecurity
+                                                    ? "secure-blue.png"
+                                                    : "secure-gray.png"
+                                                    }`}
+                                                width={50}
+                                                height={50}
+                                                alt="security"
+                                            />
+                                            <p
+                                                style={{
+                                                    color: expectedBenefitSecurity ? "#4752a3" : "gray",
+                                                }}
+                                            >
+                                                Security
+                                            </p>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </td>
@@ -185,7 +198,7 @@ const ReportPage = ({ data }) => {
                     <tr>
                         <td>
                             <div className={styles.section1}>
-                                <p> {t("project-start")} </p>
+                                <p> Project Start </p>
                             </div>
                         </td>
                         <td>
@@ -197,15 +210,15 @@ const ReportPage = ({ data }) => {
                         <td>
                             {" "}
                             <div className={styles.section1}>
-                                <p> {t("project-owner")} </p>
+                                <p> Project owner </p>
                             </div>
                         </td>
-                        <td>Row 2, Column 2</td>
+                        <td>{data.projectOwner.userName}</td>
                     </tr>
                     <tr>
                         <td>
                             <div className={styles.section1}>
-                                <p> {t("project-end")} </p>
+                                <p> Project End </p>
                             </div>
                         </td>
                         <td>
@@ -213,13 +226,30 @@ const ReportPage = ({ data }) => {
                                 <p>{formattedEnd}</p>
                             </div>
                         </td>
-                        <td>Row 2, Column 2</td>
-                        <td>Row 2, Column 2</td>
+                        <td>
+                            <div className={styles.section1}>
+                                <p> Operation environment </p>
+                            </div>
+                        </td>
+                        <td>
+                            {operatingEnvironmentAirport &&
+                                <p> Airport </p>
+                            }
+                            {operatingEnvironmentTerminal &&
+                                <p> Terminal </p>
+                            }
+                            {operatingEnvironmentACC &&
+                                <p> ACC </p>
+                            }
+                            {operatingEnvironmentNotApplicable &&
+                                <p> NotApplicable </p>
+                            }
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <div className={styles.section1}>
-                                <p> {t("status")} </p>
+                                <p> Status </p>
                             </div>
                         </td>
                         <td style={{ background: percentage < 85 ? "yellow" : "green" }}>
@@ -227,12 +257,10 @@ const ReportPage = ({ data }) => {
                                 <p>{statusText}</p>
                             </div>
                         </td>
-                        <td>Row 2, Column 2</td>
-                        <td>Row 2, Column 2</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 };
 export default ReportPage;

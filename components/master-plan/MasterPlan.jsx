@@ -31,6 +31,14 @@ const MasterPlan = ({
     const { t } = useTranslation();
     const [openVid, setOpenVid] = useState(false);
     const [numPages, setNumPages] = useState(null);
+    const [order, setOrder] = useState("asc");
+    const [orderBy, setOrderBy] = useState("code");
+
+    const handleRequestSort = (property) => {
+        const isAsc = orderBy === property && order === "asc";
+        setOrder(isAsc ? "desc" : "asc");
+        setOrderBy(property);
+    };
 
     const handleClose = () => {
         setOpenVid(false);
@@ -43,6 +51,21 @@ const MasterPlan = ({
     const onDocumentLoadSuccess = ({ numPages }) => {
         setNumPages(numPages);
     };
+
+    const sortedMonitor = [...monitor].sort((a, b) => {
+        if (orderBy === "code") {
+            return (order === "asc" ? 1 : -1) * a.code.localeCompare(b.code);
+        } else if (orderBy === "title") {
+            return (order === "asc" ? 1 : -1) * a.title.localeCompare(b.title);
+        } else if (orderBy === "start-date") {
+            return (order === "asc" ? 1 : -1) * new Date(a.startDate) - new Date(b.startDate);
+        } else if (orderBy === "finish-date") {
+            return (order === "asc" ? 1 : -1) * new Date(a.finishDate) - new Date(b.finishDate);
+        } else if (orderBy === "implement-progress") {
+            return (order === "asc" ? 1 : -1) * a.implementProgress - b.implementProgress;
+        }
+        return 0;
+    });
 
     return (
         <div className={classes.sideContent}>
@@ -83,201 +106,88 @@ const MasterPlan = ({
                         </Document>
                     </div>
                 ) : (
-                    <TableContainer component={Paper}>
+                    <TableContainer className="table-wrapper" component={Paper}>
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell className={classes.tableHover}>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                            }}
+                                    <TableCell
+                                        className={`${orderBy === 'code' ? order : ''} ${classes.tableHover}`}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        onClick={() => handleRequestSort("code")}>
+                                        <TableSortLabel
+                                            active={orderBy === "code"}
+                                            direction={orderBy === "code" ? order : "asc"}
+
                                         >
-                                            {" "}
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    cursor: "pointer",
-                                                }}
-                                            >
-                                                {" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-up"
-                                                />{" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-down"
-                                                    style={{ transform: "rotate(180deg)" }}
-                                                />{" "}
-                                            </div>
                                             {t("code")}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className={classes.tableHover}>
-                                        {" "}
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                            }}
-                                        >
-                                            {" "}
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    cursor: "pointer",
-                                                }}
-                                            >
-                                                {" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-up"
-                                                />{" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-down"
-                                                    style={{ transform: "rotate(180deg)" }}
-                                                />{" "}
-                                            </div>
-                                            {t("title")}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className={classes.tableHover}>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                            }}
-                                        >
-                                            {" "}
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    cursor: "pointer",
-                                                }}
-                                            >
-                                                {" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-up"
-                                                />{" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-down"
-                                                    style={{ transform: "rotate(180deg)" }}
-                                                />{" "}
-                                            </div>
-                                            {t("start-date")}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className={classes.tableHover}>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                            }}
-                                        >
-                                            {" "}
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    cursor: "pointer",
-                                                }}
-                                            >
-                                                {" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-up"
-                                                />{" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-down"
-                                                    style={{ transform: "rotate(180deg)" }}
-                                                />{" "}
-                                            </div>
-                                            {t("finish-date")}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className={classes.tableHover}>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                            }}
-                                        >
-                                            {" "}
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    cursor: "pointer",
-                                                }}
-                                            >
-                                                {" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-up"
-                                                />{" "}
-                                                <Image
-                                                    src="/assets/svg/arrowUp.svg"
-                                                    width={15}
-                                                    height={15}
-                                                    alt="arrow-down"
-                                                    style={{ transform: "rotate(180deg)" }}
-                                                />{" "}
-                                            </div>
-                                            {t("implement-progress")}
-                                        </div>
+                                        </TableSortLabel>
                                     </TableCell>
                                     <TableCell
-                                        className={classes.tableHover}
-                                        style={{
-                                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
-                                        }}
+                                        className={`${orderBy === 'title' ? order : ''} ${classes.tableHover}`}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        onClick={() => handleRequestSort("title")}>
+                                        <TableSortLabel
+                                            active={orderBy === "title"}
+                                            direction={orderBy === "title" ? order : "asc"}
+
+                                        >
+                                            {t("title")}
+                                        </TableSortLabel>
+                                    </TableCell>
+                                    <TableCell
+                                        className={`${orderBy === 'startDate' ? order : ''} ${classes.tableHover}`}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        onClick={() => handleRequestSort("startDate")}>
+                                        <TableSortLabel
+                                            active={orderBy === "startDate"}
+                                            direction={orderBy === "startDate" ? order : "asc"}
+
+                                        >
+                                            {t("start-date")}
+                                        </TableSortLabel>
+                                    </TableCell>
+                                    <TableCell
+                                        className={`${orderBy === 'finishDate' ? order : ''} ${classes.tableHover}`}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        onClick={() => handleRequestSort("finishDate")}>
+                                        <TableSortLabel
+                                            active={orderBy === "finishDate"}
+                                            direction={orderBy === "finishDate" ? order : "asc"}
+
+                                        >
+                                            {t("finish-date")}
+                                        </TableSortLabel>
+                                    </TableCell>
+                                    <TableCell
+                                        className={`${orderBy === 'implementProgress' ? order : ''} ${classes.tableHover}`}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        onClick={() => handleRequestSort("implementProgress")}>
+                                        <TableSortLabel
+                                            active={orderBy === "implementProgress"}
+                                            direction={orderBy === "implementProgress" ? order : "asc"}
+
+                                        >
+                                            {t("implement-progress")}
+                                        </TableSortLabel>
+                                    </TableCell>
+                                    <TableCell
+                                        className={'no-sort ' + classes.tableHover}
+                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
                                     >
                                         {t("download-report")}
                                     </TableCell>
-                                </TableRow>
-                            </TableHead>
+                                </TableRow >
+                            </TableHead >
                             <TableBody>
                                 {monitor.map((data) => {
                                     return <MasterPlanTable data={data} rtl={rtl} />;
                                 })}
                             </TableBody>
-                        </Table>
-                    </TableContainer>
+                        </Table >
+                    </TableContainer >
                 )}
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

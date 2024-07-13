@@ -307,6 +307,58 @@ p {
     }
 }
 
+// tables
+.table-wrapper {
+    box-shadow: none !important;
+
+    th {
+        font-weight: 700;
+        text-align: start;
+        padding-inline-start: 20px;
+        background: url("../public/assets/imges/sort_both.png") no-repeat center left;
+
+        .ar-lang & {
+            background: url("../public/assets/imges/sort_both.png") no-repeat center right;
+        }
+
+        &.asc {
+            background: url("../public/assets/imges/sort_asc.png") no-repeat center left;
+
+            .ar-lang & {
+                background: url("../public/assets/imges/sort_asc.png") no-repeat center right;
+            }
+        }
+
+        &.desc {
+            background: url("../public/assets/imges/sort_desc.png") no-repeat center left;
+
+            .ar-lang & {
+                background: url("../public/assets/imges/sort_desc.png") no-repeat center right;
+            }
+        }
+
+        &.no-sort {
+            background: none;
+        }
+
+        &:hover {
+            span {
+                color: #428bca !important;
+            }
+        }
+
+        svg {
+            display: none;
+        }
+    }
+
+    td {
+        border-bottom: 1px solid #ddd !important;
+        text-align: start;
+    }
+}
+
+// pdf
 .react-pdf__Page__annotations {
     &:empty {
         display: none;

@@ -89,5 +89,7 @@
     "project-start": "بداية المشروع",
     "project-owner": "مالك المشروع",
     "project-end": "نهاية المشروع",
-    "status": "الحالة"
+    "status": "الحالة",
+    "operation-environment": "بيئة التشغيل",
+    "implementation-objectives-monitoring": "أهداف التنفيذ (المراقبة)"
 }
