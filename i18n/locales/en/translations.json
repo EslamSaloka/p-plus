@@ -71,5 +71,11 @@
     "finish-date": "Finish Date",
     "implement-progress": "Implementation Progress",
     "download-report": "Download Progress Report",
-    "open": "open"
+    "open": "open",
+    "question": "Question?",
+    "still-have-question": "You still have a question?",
+    "find-question-in-faq-contact-us-answer-shortly": "If you can't find question in our FAQ, contact us. We'll answer shortly!",
+    "always-happy-to-help": "We are always happy to help",
+    "best-way-quick-answer": "Best way to get a quick answer",
+    "general-questions": "General Questions"
 }

@@ -71,5 +71,11 @@
     "finish-date": "تاريخ الانتهاء",
     "implement-progress": "تقدم التنفيذ",
     "download-report": "تحميل تقرير الإنجاز",
-    "open": "فتح"
+    "open": "فتح",
+    "question": "سؤال؟",
+    "still-have-question": "هل لديك سؤال؟",
+    "find-question-in-faq-contact-us-answer-shortly": "إذا لم تجد السؤال في الأسئلة الشائعة، اتصل بنا. سنجيب قريباً!",
+    "always-happy-to-help": "نحن دائماً سعداء بالمساعدة",
+    "best-way-quick-answer": "أفضل طريقة للحصول على إجابة سريعة",
+    "general-questions": "الأسئلة العامة"
 }

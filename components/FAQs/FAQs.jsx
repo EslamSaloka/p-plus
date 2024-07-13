@@ -169,7 +169,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                         height={20}
                                         alt="credit-card"
                                     />
-                                    <p>General Questions</p>
+                                    <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}> {t("general-questions")} </p>
                                 </div>
                                 <div
                                     className={`${classes.faqType} ${faqTitle === 1 ? ('active ' + classes.faqTypeClicked) : ""
@@ -225,12 +225,12 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                             alt="credit-card"
                                         />
                                     </div>
-                                    <p>
+                                    <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "", }}>
                                         {faqTitle === 1
                                             ? "KPI"
                                             : faqTitle === 2
                                                 ? "KPA"
-                                                : "General Questions"}
+                                                : t("general-questions")}
                                     </p>
                                 </div>
                                 <div className={classes.faQestions}>
