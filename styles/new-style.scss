@@ -307,6 +307,12 @@ p {
     }
 }
 
+.react-pdf__Page__annotations {
+    &:empty {
+        display: none;
+    }
+}
+
 /************ home sections ************/
 .welcome-section {
     @media (max-width: 991px) {
