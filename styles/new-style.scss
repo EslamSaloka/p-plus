@@ -152,6 +152,10 @@
 }
 
 /************ general ************/
+body {
+    background-color: #fff;
+}
+
 // validation
 [class*="errorMessage"]:before {
     top: -8px !important;
@@ -287,6 +291,19 @@ p {
 [class*="downloads_downloadTables"] {
     @media (max-width: 767px) {
         padding: 12px !important;
+    }
+}
+
+// master pages
+.master-wrapper {
+    @media (max-width: 991px) {
+        grid-template-columns: 1fr !important;
+    }
+
+    .master-side {
+        @media (max-width: 991px) {
+            margin-bottom: 20px;
+        }
     }
 }
 
