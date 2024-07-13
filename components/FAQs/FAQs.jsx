@@ -227,9 +227,9 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                     </div>
                                     <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "", }}>
                                         {faqTitle === 1
-                                            ? "KPI"
+                                            ? "KPI Overview"
                                             : faqTitle === 2
-                                                ? "KPA"
+                                                ? "KPA Overview"
                                                 : t("general-questions")}
                                     </p>
                                 </div>
@@ -270,12 +270,9 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                                     }}
                                                     data-aos="fade-left"
                                                 >
-                                                    <p>Q{index + 1}</p>
-                                                    {faqTitle === 0
-                                                        ? rtl
+                                                    {rtl
                                                             ? item.title?.slice(0, 80)
-                                                            : item.titleEN?.slice(0, 80)
-                                                        : item.name.slice(0, 80)}
+                                                            : item.titleEN?.slice(0, 80)}
                                                 </Typography>
                                             </AccordionSummary>
                                             <AccordionDetails
@@ -304,7 +301,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                             </div>
                         </div>
 
-                        <FAQsBottom phone={conVersion?.phone} email={conVersion?.email} />
+                        <FAQsBottom phone={conVersion?.phone} email={conVersion?.email} rtl={rtl} />
                     </div>
                     <Subscribe rtl={rtl} />
                 </div>
