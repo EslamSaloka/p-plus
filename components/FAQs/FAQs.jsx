@@ -275,7 +275,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                                         ? rtl
                                                             ? item.title?.slice(0, 80)
                                                             : item.titleEN?.slice(0, 80)
-                                                        : item.name.slice(0, 80)}
+                                                        : item.name?.slice(0, 80)}
                                                 </Typography>
                                             </AccordionSummary>
                                             <AccordionDetails
