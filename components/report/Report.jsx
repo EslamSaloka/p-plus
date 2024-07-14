@@ -257,6 +257,8 @@ const ReportPage = ({ data }) => {
                                 <p>{statusText}</p>
                             </div>
                         </td>
+                        <td>Activities</td>
+                        <td>Row 2, Column 2</td>
                     </tr>
                 </tbody>
             </table>
