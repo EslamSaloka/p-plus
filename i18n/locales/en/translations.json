@@ -77,5 +77,19 @@
     "find-question-in-faq-contact-us-answer-shortly": "If you can't find question in our FAQ, contact us. We'll answer shortly!",
     "always-happy-to-help": "We are always happy to help",
     "best-way-quick-answer": "Best way to get a quick answer",
-    "general-questions": "General Questions"
+    "general-questions": "General Questions",
+    "stakeholders": "Stakeholders",
+    "expected-benefits": "Expected Benefits",
+    "capacity": "Capacity",
+    "operational-efficiency": "Operational efficiency",
+    "cost-efficiency": "Cost efficiency",
+    "safety": "Safety",
+    "environment": "Environment",
+    "security": "Security",
+    "project-start": "Project Start",
+    "project-owner": "Project owner",
+    "project-end": "Project End",
+    "status": "Status",
+    "operation-environment": "Operation environment",
+    "implementation-objectives-monitoring": "Implementation Objectives (Monitoring)"
 }

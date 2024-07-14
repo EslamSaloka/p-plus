@@ -77,5 +77,19 @@
     "find-question-in-faq-contact-us-answer-shortly": "إذا لم تجد السؤال في الأسئلة الشائعة، اتصل بنا. سنجيب قريباً!",
     "always-happy-to-help": "نحن دائماً سعداء بالمساعدة",
     "best-way-quick-answer": "أفضل طريقة للحصول على إجابة سريعة",
-    "general-questions": "الأسئلة العامة"
+    "general-questions": "الأسئلة العامة",
+    "stakeholders": "أصحاب المصلحة",
+    "expected-benefits": "الفوائد المتوقعة",
+    "capacity": "القدرة",
+    "operational-efficiency": "الكفاءة التشغيلية",
+    "cost-efficiency": "الكفاءة الاقتصادية",
+    "safety": "السلامة",
+    "environment": "البيئة",
+    "security": "الأمن",
+    "project-start": "بداية المشروع",
+    "project-owner": "مالك المشروع",
+    "project-end": "نهاية المشروع",
+    "status": "الحالة",
+    "operation-environment": "بيئة التشغيل",
+    "implementation-objectives-monitoring": "أهداف التنفيذ (المراقبة)"
 }
