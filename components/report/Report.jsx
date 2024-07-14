@@ -228,7 +228,7 @@ const ReportPage = ({ data }) => {
                         </td>
                         <td>
                             <div className={styles.section1}>
-                                <p> Operation environment </p>
+                                <p> Operation Environment </p>
                             </div>
                         </td>
                         <td>
@@ -242,7 +242,7 @@ const ReportPage = ({ data }) => {
                                 <p> ACC </p>
                             }
                             {operatingEnvironmentNotApplicable &&
-                                <p> NotApplicable </p>
+                                <p> Not Applicable </p>
                             }
                         </td>
                     </tr>

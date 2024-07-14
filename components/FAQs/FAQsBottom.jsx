@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next";
 import styles from "./faq.module.css";
 import Image from "next/image";
-const FAQsBottom = ({ phone, email }) => {
+const FAQsBottom = ({ phone, email, rtl }) => {
     const { t } = useTranslation();
 
     return (
         <div className={styles.container}>
             <div className={styles.section1}>
-                <p> {t("question")} </p>
-                <h1> {t("still-have-question")} </h1>
-                <h4>
+                <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("question")} </p>
+                <h1 style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("still-have-question")} </h1>
+                <h4 style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}>
                     {t("find-question-in-faq-contact-us-answer-shortly")}
                 </h4>
             </div>
@@ -22,7 +22,7 @@ const FAQsBottom = ({ phone, email }) => {
                         alt="phone"
                     />
                     <h1>{phone}</h1>
-                    <p> {t("always-happy-to-help")} </p>
+                    <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("always-happy-to-help")} </p>
                 </div>
                 <div className={styles.phoneEmail}>
                     <Image
@@ -32,7 +32,7 @@ const FAQsBottom = ({ phone, email }) => {
                         alt="phone"
                     />
                     <h1>{email}</h1>
-                    <p> {t("best-way-quick-answer")} </p>
+                    <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("best-way-quick-answer")} </p>
                 </div>
             </div>
         </div>
