@@ -365,6 +365,10 @@ p {
     }
 }
 
+canvas {
+    max-height: 150px;
+}
+
 /************ home sections ************/
 .welcome-section {
     @media (max-width: 991px) {

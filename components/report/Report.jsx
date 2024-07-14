@@ -2,6 +2,11 @@ import React from "react";
 import styles from "./report.module.css";
 import Image from "next/image";
 
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 const ReportPage = ({ data }) => {
     const {
         expectedBenefitCapacity,
@@ -25,11 +30,11 @@ const ReportPage = ({ data }) => {
     //Extract the day, month, and year start project
     const dayStart = startDate.getUTCDate();
     const monthStart = startDate.getUTCMonth() + 1;
-    const yearStart = startDate.getUTCFullYear();
+    const yearStart = startDate.getFullYear();
     //Extract the day, month, and year of end project
     const dayEnd = endDate.getUTCDate();
     const monthEnd = endDate.getUTCMonth() + 1;
-    const yearEnd = endDate.getUTCFullYear();
+    const yearEnd = endDate.getFullYear();
     //Formated the date as dd/mm/yy
     const formattedStart = `${dayStart}/${monthStart}/${yearStart}`;
     const formattedEnd = `${dayEnd}/${monthEnd}/${yearEnd}`;
@@ -37,10 +42,56 @@ const ReportPage = ({ data }) => {
     //calculating the completion of the projects
     const statusText = percentage < 85 ? "Late" : "Done";
 
+    const years = [];
+    for (let year = yearStart;year <= yearEnd;year++) {
+        years.push(year);
+    }
+
+    const activityData = new Array(years.length).fill(0);
+    data.projectActivities.forEach(activity => {
+        const activityStartYear = new Date(activity.startDate).getFullYear();
+        const activityEndYear = new Date(activity.endDate).getFullYear();
+        const percentage = parseFloat(activity.percentage);
+
+        for (let year = activityStartYear;year <= activityEndYear;year++) {
+            const index = years.indexOf(year);
+            if (index !== -1) {
+                activityData[index] = percentage;
+            }
+        }
+    });
+
+    const chartData = {
+        labels: years,
+        datasets: [
+            {
+                label: 'Activities',
+                data: activityData,
+                fill: true,
+                backgroundColor: 'rgba(137, 165, 78, 1)',
+                borderColor: 'rgba(137, 165, 78, 1)',
+            },
+        ],
+    };
+
+    const options = {
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+        plugins: {
+            legend: {
+                display: false,
+            },
+        },
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.reportHeader}>
                 <h1>{data.projectInformation.titleEN}</h1>
+                <p>{projectStartDate}</p>
             </div>
             <table className={styles.table}>
                 <tbody>
@@ -253,12 +304,16 @@ const ReportPage = ({ data }) => {
                             </div>
                         </td>
                         <td style={{ background: percentage < 85 ? "yellow" : "green" }}>
+                            <span style={{ display: 'flex' }}>{statusText}</span>
+                        </td>
+                        <td>
                             <div className={styles.section1}>
-                                <p>{statusText}</p>
+                                <p> Activities </p>
                             </div>
                         </td>
-                        <td>Activities</td>
-                        <td>Row 2, Column 2</td>
+                        <td>
+                            <Line data={chartData} options={options} />
+                        </td>
                     </tr>
                 </tbody>
             </table>
