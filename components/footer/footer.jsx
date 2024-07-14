@@ -83,7 +83,7 @@ const Footer = ({ conVersion, rtl }) => {
                                             fontSize: `${12 + fontSizeGeneral}px`,
                                         }}
                                     >
-                                        {link.title}
+                                        {rtl ? link.title : link.titleEN}
                                     </p>
                                 </div>
                             );
