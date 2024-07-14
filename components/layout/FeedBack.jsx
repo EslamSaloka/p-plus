@@ -53,7 +53,6 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
         }),
         onSubmit: async (values) => {
             // Handle form submission here
-            console.log(values);
             setSendFeedback(true);
             await handleSubmitFeedback({
                 name: values.name,

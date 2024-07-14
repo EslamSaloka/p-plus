@@ -21,7 +21,6 @@ const MasterPlanMain = ({
     monitor,
 }) => {
     const router = useRouter();
-    console.log(monitor);
     const [selectingElem, setSelectingElem] = useState([elementSelect]);
     const [switching, setSwitching] = useState(false);
     const [singleElemSelecting, setSingleElemSelecting] = useState(elementSelect);

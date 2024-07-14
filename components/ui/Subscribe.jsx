@@ -42,7 +42,6 @@ const Subscribe = ({ rtl }) => {
     const handleSubscribe = async (emails) => {
         try {
             setSendFeedback(true);
-            console.log(API_ROUTES.subscribe.post);
             const response = await axios.post(API_ROUTES.subscribe.post, {
                 email: emails,
             });
