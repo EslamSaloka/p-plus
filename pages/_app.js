@@ -91,7 +91,7 @@ function App({ Component, pageProps }) {
                     rel="stylesheet"
                 />
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-                <title>GACA</title>
+                <title>SNAP</title>
             </Head>
             <div
                 style={{
