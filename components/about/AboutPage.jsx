@@ -32,6 +32,9 @@ const AboutPage = ({ data, rtl }) => {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
   return (
     <div
       className={classes.aboutPageMain}
@@ -43,7 +46,7 @@ const AboutPage = ({ data, rtl }) => {
             onClick={() => {
               router.push("/");
             }}
-            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+            style={{ fontFamily }}
           >
             {t("home-route")}
           </span>
@@ -57,7 +60,7 @@ const AboutPage = ({ data, rtl }) => {
         </p>
         <h1
           style={{
-            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+            fontFamily,
             fontSize: `${48 + fontSizeGeneral}px`,
           }}
         >
@@ -75,20 +78,20 @@ const AboutPage = ({ data, rtl }) => {
         <div className={classes.content} data-aos="fade-right">
           <h1
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${28 + fontSizeGeneral}px`,
             }}
           >
             {t("snap")}
           </h1>
-          <p
+          <div
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${15 + fontSizeGeneral}px`,
             }}
           >
             {parse(rtl ? data.information.content : data.information.contentEN)}
-          </p>
+          </div>
         </div>
       </div>
       <div className={classes.visionMission}>
@@ -101,21 +104,21 @@ const AboutPage = ({ data, rtl }) => {
           />
           <h1
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${24 + fontSizeGeneral}px`,
             }}
           >
             {t("vision")}
           </h1>
-          <p
+          <div
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${14 + fontSizeGeneral}px`,
             }}
           >
             {" "}
             {parse(rtl ? data.information.vision : data.information.visionEN)}
-          </p>
+          </div>
         </div>
         <div className={classes.vision} data-aos="fade-down">
           <Image
@@ -126,27 +129,27 @@ const AboutPage = ({ data, rtl }) => {
           />
           <h1
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${24 + fontSizeGeneral}px`,
             }}
           >
             {t("mission")}
           </h1>
-          <p
+          <div
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${14 + fontSizeGeneral}px`,
             }}
           >
             {parse(rtl ? data.information.mission : data.information.missionEN)}
-          </p>
+          </div>
         </div>
       </div>
       <div className={classes.strategic}>
         <div className={classes.strategiContent}>
           <h1
             style={{
-              fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+              fontFamily,
               fontSize: `${26 + fontSizeGeneral}px`,
             }}
           >
@@ -168,7 +171,7 @@ const AboutPage = ({ data, rtl }) => {
                 />
                 <p
                   style={{
-                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                    fontFamily,
                     fontSize: `${14 + fontSizeGeneral}px`,
                   }}
                 >

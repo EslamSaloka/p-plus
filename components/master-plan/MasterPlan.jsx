@@ -67,6 +67,9 @@ const MasterPlan = ({
         return 0;
     });
 
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
+
     return (
         <div className={classes.sideContent}>
             <div className={classes.contentPlan}>
@@ -80,7 +83,7 @@ const MasterPlan = ({
                             onClick={handleOpenVideo}
                             style={{
                                 float: rtl ? "left" : "right",
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                             }}
                         >
                             {t("video-tutorial")}
@@ -112,7 +115,7 @@ const MasterPlan = ({
                                 <TableRow>
                                     <TableCell
                                         className={`${orderBy === 'code' ? order : ''} ${classes.tableHover}`}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                         onClick={() => handleRequestSort("code")}>
                                         <TableSortLabel
                                             active={orderBy === "code"}
@@ -124,7 +127,7 @@ const MasterPlan = ({
                                     </TableCell>
                                     <TableCell
                                         className={`${orderBy === 'title' ? order : ''} ${classes.tableHover}`}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                         onClick={() => handleRequestSort("title")}>
                                         <TableSortLabel
                                             active={orderBy === "title"}
@@ -136,7 +139,7 @@ const MasterPlan = ({
                                     </TableCell>
                                     <TableCell
                                         className={`${orderBy === 'startDate' ? order : ''} ${classes.tableHover}`}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                         onClick={() => handleRequestSort("startDate")}>
                                         <TableSortLabel
                                             active={orderBy === "startDate"}
@@ -148,7 +151,7 @@ const MasterPlan = ({
                                     </TableCell>
                                     <TableCell
                                         className={`${orderBy === 'finishDate' ? order : ''} ${classes.tableHover}`}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                         onClick={() => handleRequestSort("finishDate")}>
                                         <TableSortLabel
                                             active={orderBy === "finishDate"}
@@ -160,7 +163,7 @@ const MasterPlan = ({
                                     </TableCell>
                                     <TableCell
                                         className={`${orderBy === 'implementProgress' ? order : ''} ${classes.tableHover}`}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                         onClick={() => handleRequestSort("implementProgress")}>
                                         <TableSortLabel
                                             active={orderBy === "implementProgress"}
@@ -172,7 +175,7 @@ const MasterPlan = ({
                                     </TableCell>
                                     <TableCell
                                         className={'no-sort ' + classes.tableHover}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                     >
                                         {t("download-report")}
                                     </TableCell>

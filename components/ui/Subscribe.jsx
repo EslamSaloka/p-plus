@@ -80,11 +80,15 @@ const Subscribe = ({ rtl }) => {
 
         formik.handleReset();
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+    const directionValue = rtl ? "rtl" : "ltr";
+
     return (
-        <div className={'home-subscribe ' + classes.emailing} style={{ direction: rtl ? "rtl" : "" }}>
+        <div className={'home-subscribe ' + classes.emailing} style={{ direction: directionValue }}>
             <h3
                 style={{
-                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                    fontFamily,
                     fontSize: `${19 + fontSizeGeneral}px`,
                 }}
             >
@@ -92,7 +96,7 @@ const Subscribe = ({ rtl }) => {
             </h3>
             <p
                 style={{
-                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                    fontFamily,
                     fontSize: `${11 + fontSizeGeneral}px`,
                 }}
             >
@@ -107,7 +111,7 @@ const Subscribe = ({ rtl }) => {
             </p>
             <div className={'input-wrapper ' + classes.emaillist}>
                 <input
-                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                    style={{ fontFamily }}
                     type="email"
                     id="email"
                     placeholder={t("email")}
@@ -124,9 +128,8 @@ const Subscribe = ({ rtl }) => {
                 )}
                 <button
                     style={{
-                        left: rtl ? "40px" : "",
-                        right: rtl ? "" : "0",
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
+                        insetInlineEnd: "40px"
                     }}
                     onClick={formik.handleSubmit}
                     disabled={!formik.isValid || formik.isSubmitting}

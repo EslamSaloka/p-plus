@@ -31,8 +31,12 @@ const Footer = ({ conVersion, rtl }) => {
         setLinks(conVersion.shortLinks);
     }, [conVersion]);
     const router = useRouter();
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+    const directionValue = rtl ? "rtl" : "ltr";
+
     return (
-        <div className={'main-footer ' + classes.footerMain} style={{ direction: rtl ? "rtl" : "" }}>
+        <div className={'main-footer ' + classes.footerMain} style={{ direction: directionValue }}>
             <div className={'footer-body ' + classes.footerContentMain}>
                 <div className={classes.logoSec}>
                     <Image
@@ -44,7 +48,7 @@ const Footer = ({ conVersion, rtl }) => {
                     <p
                         style={{
                             fontSize: `${16 + fontSizeGeneral}px`,
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                         }}
                     >
                         {rtl
@@ -55,7 +59,7 @@ const Footer = ({ conVersion, rtl }) => {
                         <p
                             style={{
                                 fontSize: `${16 + fontSizeGeneral}px`,
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                             }}
                         >
                             © {currentYear} {t("copy-right")}
@@ -77,7 +81,7 @@ const Footer = ({ conVersion, rtl }) => {
                                 >
                                     <p
                                         style={{
-                                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                            fontFamily,
                                             width: "100%",
                                             margin: 0,
                                             fontSize: `${12 + fontSizeGeneral}px`,
@@ -132,7 +136,7 @@ const Footer = ({ conVersion, rtl }) => {
                 </div>
 
                 <div className={'grid-md-2 ' + classes.contact}>
-                    <h1 className="text-white" style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                    <h1 className="text-white" style={{ fontFamily }}>
                         {t("connect-us")}
                     </h1>
                     <div className={classes.socialIcons}>
@@ -199,7 +203,7 @@ const Footer = ({ conVersion, rtl }) => {
                             onClick={() => {
                                 router.push("/");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("home-route")}
                         </li>
@@ -207,7 +211,7 @@ const Footer = ({ conVersion, rtl }) => {
                             onClick={() => {
                                 router.push("/about");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("about")}
                         </li>
@@ -215,7 +219,7 @@ const Footer = ({ conVersion, rtl }) => {
                             onClick={() => {
                                 router.push("/documents");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("download")}
                         </li>
@@ -223,7 +227,7 @@ const Footer = ({ conVersion, rtl }) => {
                             onClick={() => {
                                 router.push("/news");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("news")}
                         </li>
@@ -231,12 +235,13 @@ const Footer = ({ conVersion, rtl }) => {
                             onClick={() => {
                                 router.push("/faq");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("faq")}
                         </li>
                     </ul>
                 </div>
+
                 <DialogModal
                     open={open}
                     handleClose={handleClose}

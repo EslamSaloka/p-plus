@@ -153,7 +153,7 @@
 
 /************ general ************/
 body {
-    background-color: #fff !important;
+    background: #fff !important;
 }
 
 // validation
@@ -367,6 +367,12 @@ p {
 
 canvas {
     max-height: 150px;
+}
+
+.news-card {
+    @media (min-width: 992px) {
+        height: 520px;
+    }
 }
 
 /************ home sections ************/

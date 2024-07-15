@@ -62,6 +62,9 @@ const SingleNews = ({ id, rtl }) => {
             targetElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <>
             <div className={classes.newsMain} style={{ direction: rtl ? "rtl" : "" }}>
@@ -74,7 +77,7 @@ const SingleNews = ({ id, rtl }) => {
                             onClick={() => {
                                 router.push("/");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("home-route")}
                         </span>
@@ -89,7 +92,7 @@ const SingleNews = ({ id, rtl }) => {
                             onClick={() => {
                                 router.push("/news");
                             }}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("news")}
                         </span>
@@ -103,7 +106,7 @@ const SingleNews = ({ id, rtl }) => {
                     </p>
                     <h1
                         style={{
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                             fontSize: `${24 + fontSizeGeneral}px`,
                         }}
                     >
@@ -121,7 +124,7 @@ const SingleNews = ({ id, rtl }) => {
                         <div className={classes.contentHead}>
                             <p
                                 style={{
-                                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                    fontFamily,
                                     fontSize: `${24 + fontSizeGeneral}px`,
                                 }}
                             >
@@ -136,18 +139,18 @@ const SingleNews = ({ id, rtl }) => {
                                     height={24}
                                     alt="calender"
                                 />
-                                <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                                <p style={{ fontFamily }}>
                                     {humanReadableDate}
                                 </p>
                             </div>
-                            <p
+                            <div
                                 style={{
-                                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                    fontFamily,
                                     fontSize: `${20 + fontSizeGeneral}px`,
                                 }}
                             >
                                 {parse(rtl ? data.description : data?.descriptionEN)}
-                            </p>
+                            </div>
                             <button className={classes.newsShare} onClick={handleClickShare}>
                                 <Image
                                     src="/assets/svg/share.svg"
@@ -155,7 +158,7 @@ const SingleNews = ({ id, rtl }) => {
                                     height={20}
                                     alt="share"
                                 />
-                                <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                                <p style={{ fontFamily }}>
                                     {" "}
                                     {t("copy-link")}
                                 </p>
@@ -168,16 +171,16 @@ const SingleNews = ({ id, rtl }) => {
                         className={styles.newsTopHeading}
                         style={{ direction: rtl ? "rtl" : "" }}
                     >
-                        <h3 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                        <h3 style={{ fontFamily }}>
                             {rtl ? t("news") : t("related")}{" "}
-                            <span style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                            <span style={{ fontFamily }}>
                                 {rtl ? t("related") : t("news")}
                             </span>
                         </h3>
 
                         <Link
                             href={"/news"}
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("show-all-news")}
                         </Link>

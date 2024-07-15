@@ -7,6 +7,7 @@ const LoadingSpinner = () => {
         src="/assets/svg/GacaFooter.svg"
         width={200}
         height={100}
+        alt="loading"
         style={{ marginRight: "50px" }}
       />
       <span class="loader"></span>

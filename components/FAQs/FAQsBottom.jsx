@@ -4,12 +4,14 @@ import Image from "next/image";
 const FAQsBottom = ({ phone, email, rtl }) => {
     const { t } = useTranslation();
 
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <div className={styles.container}>
             <div className={styles.section1}>
-                <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("question")} </p>
-                <h1 style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("still-have-question")} </h1>
-                <h4 style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}>
+                <p style={{ fontFamily, }}> {t("question")} </p>
+                <h1 style={{ fontFamily, }}> {t("still-have-question")} </h1>
+                <h4 style={{ fontFamily, }}>
                     {t("find-question-in-faq-contact-us-answer-shortly")}
                 </h4>
             </div>
@@ -22,7 +24,7 @@ const FAQsBottom = ({ phone, email, rtl }) => {
                         alt="phone"
                     />
                     <h1>{phone}</h1>
-                    <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("always-happy-to-help")} </p>
+                    <p style={{ fontFamily, }}> {t("always-happy-to-help")} </p>
                 </div>
                 <div className={styles.phoneEmail}>
                     <Image
@@ -32,7 +34,7 @@ const FAQsBottom = ({ phone, email, rtl }) => {
                         alt="phone"
                     />
                     <h1>{email}</h1>
-                    <p style={{fontFamily: rtl ? "DINNext-Arabic-meduim " : "",}}> {t("best-way-quick-answer")} </p>
+                    <p style={{ fontFamily, }}> {t("best-way-quick-answer")} </p>
                 </div>
             </div>
         </div>

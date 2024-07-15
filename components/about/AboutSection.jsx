@@ -24,7 +24,7 @@ const AboutSection = ({ title, desc1, desc2 }) => {
         </div>
       </div>
       {lines
-        ? lines.map((line, index) => <p key={index}>{parse(line)}</p>)
+        ? lines.map((line, index) => <div key={index}>{parse(line)}</div>)
         : desc1}
     </div>
   );

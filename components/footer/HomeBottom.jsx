@@ -5,7 +5,7 @@ import Slider from "react-infinite-logo-slider";
 import NewsLandingpage from "./NewsLandingpage";
 import Image from "next/image";
 import Subscribe from "../ui/Subscribe";
-import StakeholderModal from "./StakeholderModal";
+import StakeholderModal from "./modals/StakeholderModal";
 
 const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
     const [sliderWidth, setSliderWidth] = useState("180px");
@@ -47,13 +47,16 @@ const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
         };
     }, []);
 
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+    const direction = rtl ? "rtl" : "ltr";
+
     return (
         <div className={classes.homeBottomSection}>
             <NewsLandingpage news={news} rtl={rtl} />
-            <div className={classes.homeBottomMain} style={{ direction: rtl ? "rtl" : "ltr" }}>
+            <div className={classes.homeBottomMain} style={{ direction }}>
                 <div className={classes.bottomLogo} style={{ left: rtl ? "-6%" : "10%" }}>
-                    <h2 style={{ direction: rtl ? "rtl" : "", fontFamily: rtl ? "DINNext-Arabic-medium" : "" }}>
-                        <span style={{ fontFamily: rtl ? "DINNext-Arabic-medium" : "" }}>
+                    <h2 style={{ direction, fontFamily }}>
+                        <span style={{ fontFamily }}>
                             {rtl ? "أصحاب" : "Our"}
                         </span>{" "}
                         {rtl ? "المصلحة" : "Stackholders"}
@@ -96,7 +99,7 @@ const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
                                             src={stakholder.avatar}
                                             width={140}
                                             height={140}
-                                            alt={stakholder.title}
+                                            alt={stakholder.title || 'stakeholder'}
                                             loading="lazy"
                                         />
                                     ) : (

@@ -35,10 +35,13 @@ const SingleCard = ({
         to: { opacity: 1, transform: "translateX(0%)" },
         config: { tension: 0, friction: 1 },
     });
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <Link href={`/news/${id}`} data-aos="zoom-in">
             <animated.div
-                className={classes.newsCard}
+                className={`news-card ${classes.newsCard}`}
                 style={{ ...cardProps, direction: rtl ? "rtl" : "" }}
             >
                 <div className={classes.newsCardHead}>
@@ -51,7 +54,7 @@ const SingleCard = ({
                     />
                     <p
                         style={{
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                             fontSize: `${16 + fontSizeGeneral}px`,
                         }}
                     >
@@ -66,13 +69,13 @@ const SingleCard = ({
                             height={25}
                             alt="calender"
                         />
-                        <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                        <p style={{ fontFamily }}>
                             {humanReadableDate}
                         </p>
                     </div>
-                    <p
+                    <div
                         style={{
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                             fontSize: `${14 + fontSizeGeneral}px`,
                         }}
                     >
@@ -80,7 +83,7 @@ const SingleCard = ({
                             rtl ? description?.slice(0, 170) : descriptionEN?.slice(0, 170)
                         )}
                         ...
-                    </p>
+                    </div>
                 </div>
             </animated.div>
         </Link>

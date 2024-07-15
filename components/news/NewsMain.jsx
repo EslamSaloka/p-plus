@@ -46,6 +46,9 @@ const NewsMain = ({ dataNews, rtl }) => {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
   return (
     <div
       className={classes.newsMain}
@@ -58,7 +61,7 @@ const NewsMain = ({ dataNews, rtl }) => {
               onClick={() => {
                 router.push("/");
               }}
-              style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+              style={{ fontFamily }}
             >
               {t("home-route")}
             </span>
@@ -71,7 +74,7 @@ const NewsMain = ({ dataNews, rtl }) => {
               style={{ transform: rtl ? "rotate(180deg)" : "" }}
             />
           </p>
-          <h1 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+          <h1 style={{ fontFamily }}>
             {t("news")}
           </h1>
         </div>

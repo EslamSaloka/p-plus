@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classes from "../layout/layout.module.css";
+import classes from "../../layout/layout.module.css";
 import Image from "next/image";
 import {
     DialogContent,
@@ -12,7 +12,7 @@ import Link from "next/link";
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Fade ref={ref} {...props} />;
 });
-const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
+const ExternalLinkModal = ({ open, handleClose, openLink, link, data, rtl }) => {
     const { t } = useTranslation();
     const [dialogPadding, setDialogPadding] = useState("30px 50px");
 
@@ -34,6 +34,9 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
         // Remove event listener on component unmount
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <Dialog
             open={open}
@@ -62,16 +65,16 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
             </div>
             <DialogContent>
                 <div className="grid-icon gap-12 pb-12">
-                    <img src={data.avatar} width={150} height={150} alt="" />
+                    <img src={data.avatar} width={150} height={150} alt="stakeholder" />
                     <h2
                         className="op-7"
-                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                        style={{ fontFamily }}
                     >
                         {data.name}
                     </h2>
                     <p
                         className="op-7"
-                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                        style={{ fontFamily }}
                     >
                         {data.description}
                     </p>
@@ -88,7 +91,7 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
                     }}
                     className={classes.btnCancel}
                     style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                         marginLeft: rtl ? "15px" : "",
                     }}
                 >
@@ -101,7 +104,7 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
                     variant="contained"
                     color="success"
                     className={'py-2 ' + classes.btnSubmit}
-                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim" : "", borderRadius: '0.375em' }}
+                    style={{ fontFamily, borderRadius: '0.375em' }}
                 >
                     {t("open")}
                 </Link>

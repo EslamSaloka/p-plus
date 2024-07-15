@@ -100,6 +100,9 @@ const FAQs = ({ data, conVersion, rtl }) => {
             setFaqTitle(2);
         }
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <div>
             <ThemeProvider theme={theme}>
@@ -116,7 +119,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                 onClick={() => {
                                     router.push("/");
                                 }}
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             >
                                 {t("home-route")}
                             </span>
@@ -131,7 +134,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                         <h1
                             style={{
                                 fontSize: `${48 + fontSizeGeneral}px`,
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                             }}
                         >
                             {t("faq")}
@@ -140,7 +143,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                     <div className={'faq-tabs ' + classes.faqContent}>
                         <p
                             style={{
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                                 fontSize: `${16 + fontSizeGeneral}px`,
                             }}
                             data-aos="zoom-in-up"
@@ -169,7 +172,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                         height={20}
                                         alt="credit-card"
                                     />
-                                    <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}> {t("general-questions")} </p>
+                                    <p style={{ fontFamily }}> {t("general-questions")} </p>
                                 </div>
                                 <div
                                     className={`${classes.faqType} ${faqTitle === 1 ? ('active ' + classes.faqTypeClicked) : ""
@@ -225,7 +228,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                             alt="credit-card"
                                         />
                                     </div>
-                                    <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "", }}>
+                                    <p style={{ fontFamily, }}>
                                         {faqTitle === 1
                                             ? "KPI Overview"
                                             : faqTitle === 2
@@ -265,14 +268,14 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                                         color: expandedIndices.includes(index)
                                                             ? "#1C7A54"
                                                             : "#000",
-                                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                                        fontFamily,
                                                         fontSize: `${15 + fontSizeGeneral}px`,
                                                     }}
                                                     data-aos="fade-left"
                                                 >
                                                     {rtl
-                                                            ? item.title?.slice(0, 80)
-                                                            : item.titleEN?.slice(0, 80)}
+                                                        ? item.title?.slice(0, 80)
+                                                        : item.titleEN?.slice(0, 80)}
                                                 </Typography>
                                             </AccordionSummary>
                                             <AccordionDetails
@@ -289,7 +292,7 @@ const FAQs = ({ data, conVersion, rtl }) => {
                                                     sx={{
                                                         color: "rgba(51, 48, 60, 0.87)",
                                                         fontSize: `${13 + fontSizeGeneral}px`,
-                                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                                        fontFamily,
                                                     }}
                                                 >
                                                     {rtl ? item.description : item.descriptionEN}

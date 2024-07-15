@@ -82,6 +82,9 @@ const Navbar = ({
   const handleCloseMenu = () => {
     setAnchorEl(false);
   };
+
+  const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
   return (
     <>
       <div
@@ -90,9 +93,8 @@ const Navbar = ({
       >
         <div className={classes.langAcess}>
           <div
-            className={`${classes.languageRtl} ${
-              !rtl ? classes.langArabic : ""
-            }`}
+            className={`${classes.languageRtl} ${!rtl ? classes.langArabic : ""
+              }`}
             onClick={handleRtl}
             style={{ borderLeft: !rtl ? "1px solid #fff" : "none" }}
           >
@@ -104,7 +106,7 @@ const Navbar = ({
             />
             <p
               style={{
-                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                fontFamily,
                 fontSize: `${fontSizeSmall}px`,
               }}
             >
@@ -163,7 +165,7 @@ const Navbar = ({
             className={classes.dateSaudi}
             style={{ fontSize: `${15 + fontSizeGeneral}px` }}
           >
-            <p style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+            <p style={{ fontFamily }}>
               {formatArabicDate()}
             </p>
           </div>
@@ -171,9 +173,8 @@ const Navbar = ({
       </div>
 
       <div
-        className={`${classes.navModified} ${
-          aboutPath ? classes.aboutModified : null
-        }`}
+        className={`${classes.navModified} ${aboutPath ? classes.aboutModified : null
+          }`}
         onClick={() => {
           isFeedbackVisible ? handleToggleFeedback() : null;
         }}
@@ -186,13 +187,12 @@ const Navbar = ({
       >
         <nav className={`${classes.navMain}`}>
           <div
-            className={`hamburger ${addClass ? "active" : ""} ${
-              addClass
-                ? rtl
-                  ? classes.hamburgerNav
-                  : classes.hamburgerNavEn
-                : "null"
-            } ${rtl ? classes.hamburgerInitial : classes.hamburgerInitialEn}`}
+            className={`hamburger ${addClass ? "active" : ""} ${addClass
+              ? rtl
+                ? classes.hamburgerNav
+                : classes.hamburgerNavEn
+              : "null"
+              } ${rtl ? classes.hamburgerInitial : classes.hamburgerInitialEn}`}
             onClick={mobileMenu}
           >
             <span className={`bar`}></span>
@@ -212,13 +212,12 @@ const Navbar = ({
             />
           </div>
           <div
-            className={`${classes.navSections} ${
-              addClass
-                ? rtl
-                  ? classes.navContentHamAr
-                  : classes.navContentHam
-                : null
-            } ${rtl ? classes.navRight : classes.navLeft} `}
+            className={`${classes.navSections} ${addClass
+              ? rtl
+                ? classes.navContentHamAr
+                : classes.navContentHam
+              : null
+              } ${rtl ? classes.navRight : classes.navLeft} `}
           >
             <Image
               src="/assets/svg/LogoAbout.svg"
@@ -228,9 +227,8 @@ const Navbar = ({
               className={classes.imgMenu}
             />
             <ul
-              className={`${classes.section} ${
-                rtl ? classes.sectionAr : null
-              } `}
+              className={`${classes.section} ${rtl ? classes.sectionAr : null
+                } `}
               style={{
                 fontSize: `${17 + fontSizeGeneral}px`,
               }}
@@ -242,7 +240,7 @@ const Navbar = ({
                 }}
                 className={`${path.length ? null : classes.activeHome}`}
                 style={{
-                  fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                  fontFamily,
                 }}
               >
                 {t("home-route")}
@@ -253,7 +251,7 @@ const Navbar = ({
                   router.push("/about");
                 }}
                 className={`${path === "about" ? classes.active : null}`}
-                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                style={{ fontFamily }}
               >
                 {t("about")}
               </li>
@@ -263,7 +261,7 @@ const Navbar = ({
                   router.push("/documents");
                 }}
                 className={`${path === "documents" ? classes.active : null}`}
-                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                style={{ fontFamily }}
               >
                 {t("download")}
               </li>
@@ -273,7 +271,7 @@ const Navbar = ({
                   router.push("/news");
                 }}
                 className={`${path === "news" ? classes.active : null}`}
-                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                style={{ fontFamily }}
               >
                 {t("news")}
               </li>
@@ -283,7 +281,7 @@ const Navbar = ({
                   router.push("/faq");
                 }}
                 className={`${path === "faq" ? classes.active : null}`}
-                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                style={{ fontFamily }}
               >
                 {t("faq")}
               </li>
@@ -291,13 +289,12 @@ const Navbar = ({
           </div>
 
           <div
-            className={`${classes.feedBackSection} ${
-              addClass
-                ? rtl
-                  ? classes.navAuthHam
-                  : classes.navAuthHamRight
-                : null
-            }  `}
+            className={`${classes.feedBackSection} ${addClass
+              ? rtl
+                ? classes.navAuthHam
+                : classes.navAuthHamRight
+              : null
+              }  `}
           >
             <div className={classes.vision}>
               <Image
@@ -322,7 +319,7 @@ const Navbar = ({
               />
               <p
                 style={{
-                  fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                  fontFamily,
                 }}
               >
                 {t("feedback")}
@@ -366,7 +363,7 @@ const Navbar = ({
                   >
                     <p
                       style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                       }}
                     >
                       {t("phone-call")}
@@ -390,7 +387,7 @@ const Navbar = ({
                   >
                     <p
                       style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                       }}
                     >
                       {t("message-menu")}
@@ -416,7 +413,7 @@ const Navbar = ({
                   >
                     <p
                       style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                       }}
                     >
                       {t("accessibility")}
@@ -444,7 +441,7 @@ const Navbar = ({
                   >
                     <p
                       style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                       }}
                     >
                       {t("lang-version")}

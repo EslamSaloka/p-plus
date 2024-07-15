@@ -85,6 +85,9 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
         // Remove event listener on component unmount
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <Dialog
             open={open}
@@ -114,14 +117,14 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
             </div>
             <DialogTitle
                 className={classes.feedbackhead}
-                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                style={{ fontFamily }}
             >
                 {t("feedback")}
             </DialogTitle>
             <DialogContent>
                 <DialogContentText
                     className={classes.feedbackDesc}
-                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                    style={{ fontFamily }}
                 >
                     {t("feedback-header")}
                 </DialogContentText>
@@ -140,7 +143,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                             >
                                 <label
                                     htmlFor="email"
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 >
                                     {t("feedback-email-label")}
                                     {formik.touched.email && formik.errors.email ? "*" : null}
@@ -154,7 +157,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                     onBlur={formik.handleBlur}
                                     value={formik.values.email}
                                     onFocus={() => handleInputFocus("email")}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 />
                                 {formik.touched.email && formik.errors.email && (
                                     <span className={classes.errorMessage}>
@@ -172,7 +175,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                             >
                                 <label
                                     htmlFor="phone"
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 >
                                     {t("feedback-phone-number")}
                                     {formik.touched.phone && formik.errors.phone ? "*" : null}
@@ -186,7 +189,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                     onBlur={formik.handleBlur}
                                     value={formik.values.phone}
                                     onFocus={() => handleInputFocus("phone")}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 />
                                 {formik.touched.phone && formik.errors.phone && (
                                     <span className={classes.errorMessage}>
@@ -204,7 +207,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                         >
                             <label
                                 htmlFor="name"
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             >
                                 {t("feedback-name")}
                                 {formik.touched.name && formik.errors.name ? "*" : null}
@@ -219,7 +222,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                                 onFocus={() => handleInputFocus("name")}
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             />
                             {formik.touched.name && formik.errors.name && (
                                 <span className={classes.errorMessage}>{formik.errors.name}</span>
@@ -238,7 +241,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                             >
                                 <label
                                     htmlFor="feedbackTitle"
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 >
                                     {t("feedback-title")}{" "}
                                     {formik.touched.feedbackTitle && formik.errors.feedbackTitle
@@ -254,7 +257,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                     onBlur={formik.handleBlur}
                                     value={formik.values.feedbackTitle}
                                     onFocus={() => handleInputFocus("feedbackTitle")}
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 />
                                 {formik.touched.feedbackTitle && formik.errors.feedbackTitle && (
                                     <span className={classes.errorMessage}>
@@ -274,7 +277,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                             >
                                 <label
                                     htmlFor="feedbackType"
-                                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                    style={{ fontFamily }}
                                 >
                                     {t("feedback-type")}
                                 </label>
@@ -290,26 +293,26 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                 >
                                     <MenuItem value={0}>
                                         <p
-                                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                            style={{ fontFamily }}
                                         >
                                             {t("feedback-reco")}
                                         </p>
                                     </MenuItem>
                                     <MenuItem
                                         value={1}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                     >
                                         {t("feedback-error")}
                                     </MenuItem>
                                     <MenuItem
                                         value={2}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                     >
                                         {t("feedback-question")}
                                     </MenuItem>
                                     <MenuItem
                                         value={3}
-                                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                        style={{ fontFamily }}
                                     >
                                         {t("feedback-other")}
                                     </MenuItem>
@@ -332,7 +335,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                         >
                             <label
                                 htmlFor="feedbackMessage"
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             >
                                 {t("feedback-message")}{" "}
                                 {formik.touched.feedbackMessage && formik.errors.feedbackMessage
@@ -348,7 +351,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                 rows={4}
                                 value={formik.values.feedbackMessage}
                                 onFocus={() => handleInputFocus("feedbackMessage")}
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             />
                             {formik.touched.feedbackMessage &&
                                 formik.errors.feedbackMessage && (
@@ -368,7 +371,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                 }}
                                 className={classes.btnCancel}
                                 style={{
-                                    fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                    fontFamily,
                                     marginLeft: rtl ? "15px" : "",
                                 }}
                             >
@@ -391,7 +394,7 @@ const FeedBack = ({ open, handleClose, handleSubmitFeedback, rtl }) => {
                                         ? true
                                         : false
                                 }
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             >
                                 {t("feedback-submit")}
                             </Button>

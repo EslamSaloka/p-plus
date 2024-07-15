@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../news/news.module.css";
 import Link from "next/link";
 import SingleCard from "../news/SingleCard";
@@ -40,11 +40,15 @@ const options = {
         },
     },
 };
+
 const NewsLandingpage = React.memo(({ news, rtl }) => {
     const [currentSlide, setCurrentSlide] = useState(1);
+    const { t } = useTranslation();
+
     useEffect(() => {
         handleLeft();
     }, [rtl]);
+
     const handleRight = () => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % news.length);
     };
@@ -52,25 +56,19 @@ const NewsLandingpage = React.memo(({ news, rtl }) => {
     const handleLeft = () => {
         setCurrentSlide((prevSlide) => (prevSlide - 1 + news.length) % news.length);
     };
-    //refresh the page or rerender it the component for every rtl
-    const { t } = useTranslation();
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <div className={classes.newsHeader}>
             <div
                 className={classes.newsTopHeading}
-                style={{ direction: rtl ? "rtl" : "" }}
+                style={{ direction: rtl ? "rtl" : "ltr" }}
             >
-                <h3 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
-                    {t("latest")}{" "}
-                    <span style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
-                        {t("news")}
-                    </span>
+                <h3 style={{ fontFamily }}>
+                    {t("latest")} <span style={{ fontFamily }}>{t("news")}</span>
                 </h3>
-
-                <Link
-                    href={"/news"}
-                    style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
-                >
+                <Link href={"/news"} style={{ fontFamily }}>
                     {t("show-all-news")}
                 </Link>
             </div>

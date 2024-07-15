@@ -56,8 +56,10 @@ const Layout = (props) => {
         }
     };
 
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
-        <div className={rtl ? ' ar-lang ' : ''} style={{ fontFamily: rtl ? "DINNext-Arabic-meduim !important" : "" }}>
+        <div className={rtl ? ' ar-lang ' : ''} style={{ fontFamily }}>
             <Navbar
                 isFeedbackVisible={isFeedbackVisible}
                 handleToggleFeedback={handleToggleFeedback}

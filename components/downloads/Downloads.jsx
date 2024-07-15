@@ -109,6 +109,9 @@ const Downloads = ({ data, conversion, rtl }) => {
             targetElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
     return (
         <div className={classes.downloadPage}>
             <div
@@ -120,7 +123,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                         onClick={() => {
                             router.push("/");
                         }}
-                        style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                        style={{ fontFamily }}
                     >
                         {t("home-route")}
                     </span>
@@ -132,7 +135,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                         alt="chevron"
                     />
                 </p>
-                <h1 style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}>
+                <h1 style={{ fontFamily }}>
                     {t("download")}
                 </h1>
             </div>
@@ -140,7 +143,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                 <p
                     style={{
                         fontSize: `${14 + fontSizeGeneral}px`,
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                     }}
                 >
                     {rtl
@@ -152,7 +155,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                 <div className={classes.filteringDocument}>
                     <div className={classes.filterByNumber}>
                         <FormLabel
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("show")}
                         </FormLabel>
@@ -169,7 +172,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                             <MenuItem value={20}>20</MenuItem>
                         </Select>
                         <FormLabel
-                            style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                            style={{ fontFamily }}
                         >
                             {t("entries")}
                         </FormLabel>
@@ -181,7 +184,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                         >
                             <FormLabel
                                 htmlFor="search"
-                                style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "" }}
+                                style={{ fontFamily }}
                             >
                                 {t("search")}
                             </FormLabel>
@@ -205,7 +208,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                             <TableRow>
                                 <TableCell
                                     style={{
-                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                        fontFamily,
                                         textAlign: rtl ? "right" : "left",
                                     }}
                                 >
@@ -218,7 +221,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                                         justifyContent: "flex-start",
                                         textAlign: "right",
                                         gap: "10px",
-                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                        fontFamily,
                                     }}
                                 >
                                     {" "}
@@ -250,7 +253,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                                 </TableCell>
                                 <TableCell
                                     style={{
-                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                        fontFamily,
                                         textAlign: rtl ? "right" : "left",
                                     }}
                                 >
@@ -258,7 +261,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                                 </TableCell>
                                 <TableCell
                                     style={{
-                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                        fontFamily,
                                         textAlign: rtl ? "right" : "left",
                                     }}
                                 >
@@ -288,7 +291,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                                     <TableRow key={document.id}>
                                         <TableCell
                                             style={{
-                                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                                fontFamily,
                                                 textAlign: rtl ? "right" : "left",
                                             }}
                                         >
@@ -312,7 +315,7 @@ const Downloads = ({ data, conversion, rtl }) => {
                                             >
                                                 <p
                                                     style={{
-                                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                                        fontFamily,
                                                     }}
                                                 >
                                                     {t("submit")}

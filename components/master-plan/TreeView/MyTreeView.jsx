@@ -54,7 +54,7 @@ const MyTreeView = ({
                                         }`}
                                     style={{
                                         direction: "ltr",
-                                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                        fontFamily,
                                     }}
                                 >
                                     {rtl ? menu.title : menu.titleEN}
@@ -80,6 +80,9 @@ const MyTreeView = ({
             });
         };
 
+        const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+
+
         return hasChildren || hasDataMenus ? (
             <TreeItem
                 key={nodes.id}
@@ -92,7 +95,7 @@ const MyTreeView = ({
                         <p
                             className={`${classes.children}`}
                             style={{
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                                 color: selected === nodes.id ? "#fff" : "",
                             }}
                         >
@@ -133,7 +136,7 @@ const MyTreeView = ({
                                 } `}
                             style={{
                                 direction: "ltr",
-                                fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                                fontFamily,
                             }}
                         >
                             {rtl ? nodes.title : nodes.titleEN}
@@ -206,7 +209,7 @@ const MyTreeView = ({
                     <p
                         className={`${classes.childrens} ${classes.childSelected} `}
                         style={{
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                             color: selectMonitor ? "white" : "black",
                         }}
                     >

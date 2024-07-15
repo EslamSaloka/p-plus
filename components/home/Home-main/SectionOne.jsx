@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import parse from "html-react-parser";
 import { useFontSize } from "@/store/FontSizeContext";
 import { useTranslation } from "react-i18next";
+
 const SectionOne = ({ title, desc, rtl }) => {
     const { t } = useTranslation();
     const { fontSizeGeneral } = useFontSize();
@@ -15,8 +16,13 @@ const SectionOne = ({ title, desc, rtl }) => {
             targetElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
+    const direction = rtl ? "rtl" : "ltr";
+    const marginRight = rtl ? "0px" : "auto";
+
     return (
-        <div className={'welcome-section ' + classes.sectionOne} style={{ direction: rtl ? "rtl" : "" }}>
+        <div className={'welcome-section ' + classes.sectionOne} style={{ direction }}>
             {/* Video background */}
             <div className={classes.videoContainer}>
                 <video autoPlay muted loop className={classes.video}>
@@ -27,24 +33,24 @@ const SectionOne = ({ title, desc, rtl }) => {
                 <div className={classes.overlay}></div>
             </div>
 
-            {/* Content  section in the home page section*/}
+            {/* Content section in the home page section */}
             <div className={classes.secOneContect} data-aos="fade-right">
                 <h1
                     style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                         fontSize: `${55 + fontSizeGeneral}px`,
                     }}
                 >
                     {title}
                 </h1>
-                <p
+                <div
                     style={{
-                        fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                        fontFamily,
                         fontSize: `${16 + fontSizeGeneral}px`,
                     }}
                 >
                     {parse(desc)}
-                </p>
+                </div>
                 <div
                     className={classes.secOneButton}
                     onClick={() => {
@@ -53,18 +59,17 @@ const SectionOne = ({ title, desc, rtl }) => {
                 >
                     <p
                         style={{
-                            fontFamily: rtl ? "DINNext-Arabic-meduim " : "",
+                            fontFamily,
                             fontSize: `${20 + fontSizeGeneral}px`,
                         }}
                     >
-                        {" "}
                         {t("downloadDoc")}
                     </p>
                 </div>
             </div>
             <div
                 className={classes.sectionTwo}
-                style={{ marginRight: rtl ? "0px" : "" }}
+                style={{ marginRight }}
             >
                 <Image
                     src="/assets/imges/Brochure-landingpage.webp"
