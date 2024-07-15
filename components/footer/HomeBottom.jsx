@@ -51,7 +51,7 @@ const HomeBottom = ({ imgs, conVersion, desc, news, rtl }) => {
     const direction = rtl ? "rtl" : "ltr";
 
     return (
-        <div className={classes.homeBottomSection}>
+        <div className={`news-slider-wrapper ${classes.homeBottomSection}`}>
             <NewsLandingpage news={news} rtl={rtl} />
             <div className={classes.homeBottomMain} style={{ direction }}>
                 <div className={classes.bottomLogo} style={{ left: rtl ? "-6%" : "10%" }}>

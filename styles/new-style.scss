@@ -396,6 +396,11 @@ canvas {
     }
 }
 
+.news-slider-wrapper {
+    background: url("/assets/svg/map-bg.svg") no-repeat center;
+    background-size: cover;
+}
+
 .home-subscribe {
     @media (max-width: 991px) {
         flex-direction: column;
