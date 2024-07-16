@@ -366,12 +366,34 @@ p {
 }
 
 canvas {
-    max-height: 150px;
+    &:not(.react-pdf__Page__canvas) {
+        max-height: 150px;
+    }
 }
 
 .news-card {
     @media (min-width: 992px) {
         height: 520px;
+    }
+}
+
+.external-link-modal {
+    h2 {
+        font-family: "DINNext-Bold", sans-serif;
+
+        [lang="ar"] & {
+            font-family: "DINNext-Arabic-meduim", sans-serif;
+        }
+    }
+
+    h6 {
+        font-family: "DINNext-meduim", sans-serif;
+        font-size: 1rem;
+        margin-top: 1rem;
+
+        [lang="ar"] & {
+            font-family: "DINNext-Arabic-meduim", sans-serif;
+        }
     }
 }
 

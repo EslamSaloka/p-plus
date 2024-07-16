@@ -70,13 +70,13 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
                         className="op-7"
                         style={{ fontFamily }}
                     >
-                        {data.name}
+                        {data?.name || t("no-name")}
                     </h2>
                     <p
                         className="op-7"
                         style={{ fontFamily }}
                     >
-                        {data.description}
+                        {data?.description || t("no-description")}
                     </p>
                 </div>
             </DialogContent>
@@ -87,7 +87,6 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
                     color="inherit"
                     onClick={() => {
                         handleClose();
-                        formik.resetForm();
                     }}
                     className={classes.btnCancel}
                     style={{
@@ -98,7 +97,7 @@ const StakeholderModal = ({ open, handleClose, openLink, link, data, rtl }) => {
                     {t("cancel")}
                 </button>
                 <Link
-                    href={data.url}
+                    href={data && data.url ? data.url : '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="contained"

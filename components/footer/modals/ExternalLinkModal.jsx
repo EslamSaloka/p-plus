@@ -64,20 +64,9 @@ const ExternalLinkModal = ({ open, handleClose, openLink, link, data, rtl }) => 
                 <Image src="/assets/svg/x.svg" width={19} height={19} alt="x" />
             </div>
             <DialogContent>
-                <div className="grid-icon gap-12 pb-12">
-                    <img src={data.avatar} width={150} height={150} alt="stakeholder" />
-                    <h2
-                        className="op-7"
-                        style={{ fontFamily }}
-                    >
-                        {data.name}
-                    </h2>
-                    <p
-                        className="op-7"
-                        style={{ fontFamily }}
-                    >
-                        {data.description}
-                    </p>
+                <div className="external-link-modal">
+                    <h2 style={{ fontFamily }} className="op-7 fw-6"> {t("alert-header")} </h2>
+                    <h6 style={{ fontFamily }} className="op-6 fw-4"> {t("alert-message")} </h6>
                 </div>
             </DialogContent>
 
@@ -87,7 +76,6 @@ const ExternalLinkModal = ({ open, handleClose, openLink, link, data, rtl }) => 
                     color="inherit"
                     onClick={() => {
                         handleClose();
-                        formik.resetForm();
                     }}
                     className={classes.btnCancel}
                     style={{
@@ -98,7 +86,7 @@ const ExternalLinkModal = ({ open, handleClose, openLink, link, data, rtl }) => 
                     {t("cancel")}
                 </button>
                 <Link
-                    href={data.url}
+                    href={data && data.linkAddress ? data.linkAddress : '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="contained"
@@ -113,4 +101,4 @@ const ExternalLinkModal = ({ open, handleClose, openLink, link, data, rtl }) => 
     );
 };
 
-export default StakeholderModal;
+export default ExternalLinkModal;

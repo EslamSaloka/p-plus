@@ -91,5 +91,7 @@
     "project-end": "نهاية المشروع",
     "status": "الحالة",
     "operation-environment": "بيئة التشغيل",
-    "implementation-objectives-monitoring": "أهداف التنفيذ (المراقبة)"
+    "implementation-objectives-monitoring": "أهداف التنفيذ (المراقبة)",
+    "no-name": "بدون اسم",
+    "no-description": "بدون وصف"
 }

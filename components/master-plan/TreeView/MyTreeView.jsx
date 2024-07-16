@@ -19,6 +19,8 @@ const MyTreeView = ({
     const { t } = useTranslation();
 
 
+
+
     const renderTree = (nodes) => {
         if (!nodes) {
             return null;
@@ -28,6 +30,8 @@ const MyTreeView = ({
             Array.isArray(nodes.children) && nodes.children.length > 0;
         const hasDataMenus =
             Array.isArray(nodes.dataMenus) && nodes.dataMenus.length > 0;
+
+        const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
 
         const renderDataMenus = (dataMenus) => {
             return dataMenus.map((menu) => {
@@ -79,9 +83,6 @@ const MyTreeView = ({
                 );
             });
         };
-
-        const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
-
 
         return hasChildren || hasDataMenus ? (
             <TreeItem
@@ -165,6 +166,8 @@ const MyTreeView = ({
             setSelected("");
         }
     };
+
+    const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
 
     return (
         <>

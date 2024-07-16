@@ -91,5 +91,7 @@
     "project-end": "Project End",
     "status": "Status",
     "operation-environment": "Operation environment",
-    "implementation-objectives-monitoring": "Implementation Objectives (Monitoring)"
+    "implementation-objectives-monitoring": "Implementation Objectives (Monitoring)",
+    "no-name": "No Name",
+    "no-description": "No Description"
 }

@@ -5,31 +5,49 @@ import { useRouter } from "next/router";
 import DialogModal from "../ui/DialogModal";
 import { useFontSize } from "@/store/FontSizeContext";
 import { useTranslation } from "react-i18next";
+import ExternalLinkModal from "./modals/ExternalLinkModal";
+
 const Footer = ({ conVersion, rtl }) => {
     const { t } = useTranslation();
     const { fontSizeGeneral } = useFontSize();
     const [links, setLinks] = useState([]);
+    const [socialLinks, setSocialLinks] = useState({});
+
     const [linkProvide, setLinkProvide] = useState("");
     //setting up for the dialog modal
     const [open, setOpen] = useState(false);
+    const [selectedShortLink, setSelectedShortLink] = useState(null);
+
     const handleClose = () => {
         setOpen(false);
     };
-    const handleOpen = () => {
-        setOpen(true);
+
+    const handleOpen = (shortLink) => {
+        setSelectedShortLink(shortLink); // Set the selected shortLink
+        setOpen(true); // Open the modal
     };
+
     const likeAndOpenLink = (link) => {
         // Perform the action to simulate a "like" (replace with your actual like functionality)
 
         // Open a new tab or window with the specified URL
         window.open(link, "_blank");
     };
+
     //Getting current year
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
+
+
     useEffect(() => {
-        setLinks(conVersion.shortLinks);
+        if (conVersion && conVersion.shortLinks) {
+            setLinks(conVersion.shortLinks);
+        }
+        if (conVersion && conVersion.socialMedia) {
+            setSocialLinks(conVersion.socialMedia);
+        }
     }, [conVersion]);
+
     const router = useRouter();
 
     const fontFamily = rtl ? "DINNext-Arabic-meduim" : "";
@@ -74,7 +92,7 @@ const Footer = ({ conVersion, rtl }) => {
                                 <div
                                     style={{ cursor: "pointer", fontSize: "12px" }}
                                     onClick={() => {
-                                        handleOpen();
+                                        handleOpen(link);
                                         setLinkProvide(link.linkAddress);
                                     }}
                                     key={index}
@@ -139,63 +157,22 @@ const Footer = ({ conVersion, rtl }) => {
                     <h1 className="text-white" style={{ fontFamily }}>
                         {t("connect-us")}
                     </h1>
+
                     <div className={classes.socialIcons}>
-                        <div
-                            onClick={() => {
-                                handleOpen();
-                                setLinkProvide(conVersion?.socialMedia?.faceBook);
-                            }}
-                            className={classes.icon}
-                        >
-                            <Image
-                                src="/assets/svg/ico-facebook.svg"
-                                alt="facebook"
-                                width={24}
-                                height={24}
-                            />
-                        </div>
-                        <div
-                            onClick={() => {
-                                handleOpen();
-                                setLinkProvide(conVersion?.socialMedia?.instgram);
-                            }}
-                            className={classes.icon}
-                        >
-                            <Image
-                                src="/assets/svg/ico-instgram.svg"
-                                alt="instgram"
-                                width={24}
-                                height={24}
-                            />
-                        </div>
-                        <div
-                            onClick={() => {
-                                handleOpen();
-                                setLinkProvide(conVersion?.socialMedia?.twitter);
-                            }}
-                            className={classes.icon}
-                        >
-                            <Image
-                                src="/assets/svg/xIcon.svg"
-                                alt="X"
-                                width={24}
-                                height={24}
-                            />
-                        </div>
-                        <div
-                            onClick={() => {
-                                handleOpen();
-                                setLinkProvide(conVersion?.socialMedia?.youTube);
-                            }}
-                            className={classes.icon}
-                        >
-                            <Image
-                                src="/assets/svg/ico-youtube.svg"
-                                alt="youtube"
-                                width={24}
-                                height={24}
-                            />
-                        </div>
+                        {Object.entries(socialLinks).map(([key, value]) => (
+                            <div
+                                key={key}
+                                onClick={() => window.open(value, "_blank")}
+                                className={classes.icon}
+                            >
+                                <Image
+                                    src={`/assets/svg/ico-${key}.svg`} // Adjust path as per your actual SVGs
+                                    alt={key}
+                                    width={24}
+                                    height={24}
+                                />
+                            </div>
+                        ))}
                     </div>
 
                     <ul className={'pages-links ' + classes.footerContent}>
@@ -247,6 +224,15 @@ const Footer = ({ conVersion, rtl }) => {
                     handleClose={handleClose}
                     openLink={likeAndOpenLink}
                     link={linkProvide}
+                />
+
+                <ExternalLinkModal
+                    open={open}
+                    handleClose={handleClose}
+                    openLink={likeAndOpenLink}
+                    link={selectedShortLink?.linkAddress}
+                    data={selectedShortLink}
+                    rtl={rtl}
                 />
             </div>
         </div>
